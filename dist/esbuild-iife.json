@@ -1,39 +1,394 @@
 {
   "inputs": {
-    "node_modules/@pixi/constants/dist/esm/constants.mjs": {
-      "bytes": 10264,
+    "node_modules/@pixi/constants/lib/index.mjs": {
+      "bytes": 10068,
       "imports": []
     },
-    "node_modules/@pixi/settings/dist/esm/settings.mjs": {
-      "bytes": 6872,
+    "node_modules/@pixi/settings/lib/adapter.mjs": {
+      "bytes": 500,
+      "imports": []
+    },
+    "node_modules/@pixi/settings/lib/node_modules/ismobilejs/esm/isMobile.mjs": {
+      "bytes": 4412,
+      "imports": []
+    },
+    "node_modules/@pixi/settings/lib/node_modules/ismobilejs/esm/index.mjs": {
+      "bytes": 77,
       "imports": [
         {
-          "path": "node_modules/@pixi/constants/dist/esm/constants.mjs",
+          "path": "node_modules/@pixi/settings/lib/node_modules/ismobilejs/esm/isMobile.mjs",
           "kind": "import-statement"
         }
       ]
     },
-    "node_modules/@pixi/extensions/dist/esm/extensions.mjs": {
-      "bytes": 3206,
-      "imports": []
-    },
-    "node_modules/@pixi/math/dist/esm/math.mjs": {
-      "bytes": 22406,
-      "imports": []
-    },
-    "node_modules/@pixi/runner/dist/esm/runner.mjs": {
-      "bytes": 1723,
-      "imports": []
-    },
-    "node_modules/@pixi/ticker/dist/esm/ticker.mjs": {
-      "bytes": 7920,
+    "node_modules/@pixi/settings/lib/utils/isMobile.mjs": {
+      "bytes": 233,
       "imports": [
         {
-          "path": "node_modules/@pixi/settings/dist/esm/settings.mjs",
+          "path": "node_modules/@pixi/settings/lib/node_modules/ismobilejs/esm/index.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/extensions/dist/esm/extensions.mjs",
+          "path": "node_modules/@pixi/settings/lib/node_modules/ismobilejs/esm/isMobile.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/settings/lib/utils/canUploadSameBuffer.mjs": {
+      "bytes": 194,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/settings/lib/utils/isMobile.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/settings/lib/utils/maxRecommendedTextures.mjs": {
+      "bytes": 788,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/settings/lib/utils/isMobile.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/settings/lib/settings.mjs": {
+      "bytes": 1343,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/adapter.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/utils/canUploadSameBuffer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/utils/isMobile.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/utils/maxRecommendedTextures.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/settings/lib/ICanvas.mjs": {
+      "bytes": 38,
+      "imports": []
+    },
+    "node_modules/@pixi/settings/lib/ICanvasRenderingContext2D.mjs": {
+      "bytes": 56,
+      "imports": []
+    },
+    "node_modules/@pixi/settings/lib/index.mjs": {
+      "bytes": 241,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/settings/lib/settings.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/utils/isMobile.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/adapter.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/ICanvas.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/ICanvasRenderingContext2D.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/settings.mjs": {
+      "bytes": 237,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/extensions/lib/index.mjs": {
+      "bytes": 2773,
+      "imports": []
+    },
+    "node_modules/@pixi/math/lib/const.mjs": {
+      "bytes": 465,
+      "imports": []
+    },
+    "node_modules/@pixi/math/lib/Point.mjs": {
+      "bytes": 480,
+      "imports": []
+    },
+    "node_modules/@pixi/math/lib/shapes/Rectangle.mjs": {
+      "bytes": 4761,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/const.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/Point.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/math/lib/shapes/Circle.mjs": {
+      "bytes": 706,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/const.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/shapes/Rectangle.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/math/lib/shapes/Ellipse.mjs": {
+      "bytes": 794,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/shapes/Rectangle.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/const.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/math/lib/shapes/Polygon.mjs": {
+      "bytes": 1111,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/const.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/math/lib/shapes/RoundedRectangle.mjs": {
+      "bytes": 1516,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/const.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/math/lib/IPointData.mjs": {
+      "bytes": 41,
+      "imports": []
+    },
+    "node_modules/@pixi/math/lib/IPoint.mjs": {
+      "bytes": 37,
+      "imports": []
+    },
+    "node_modules/@pixi/math/lib/ObservablePoint.mjs": {
+      "bytes": 1074,
+      "imports": []
+    },
+    "node_modules/@pixi/math/lib/Matrix.mjs": {
+      "bytes": 5822,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/Point.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/const.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/math/lib/groupD8.mjs": {
+      "bytes": 2480,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/Matrix.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/math/lib/Transform.mjs": {
+      "bytes": 2867,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/ObservablePoint.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/Matrix.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/math/lib/index.mjs": {
+      "bytes": 632,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/shapes/Circle.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/shapes/Ellipse.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/shapes/Polygon.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/shapes/Rectangle.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/shapes/RoundedRectangle.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/IPointData.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/IPoint.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/Point.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/ObservablePoint.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/Matrix.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/groupD8.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/Transform.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/const.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/runner/lib/Runner.mjs": {
+      "bytes": 1537,
+      "imports": []
+    },
+    "node_modules/@pixi/runner/lib/index.mjs": {
+      "bytes": 74,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/runner/lib/Runner.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/ticker/lib/settings.mjs": {
+      "bytes": 154,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/ticker/lib/const.mjs": {
+      "bytes": 430,
+      "imports": []
+    },
+    "node_modules/@pixi/ticker/lib/TickerListener.mjs": {
+      "bytes": 1306,
+      "imports": []
+    },
+    "node_modules/@pixi/ticker/lib/Ticker.mjs": {
+      "bytes": 5145,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/ticker/lib/settings.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/ticker/lib/const.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/ticker/lib/TickerListener.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/ticker/lib/TickerPlugin.mjs": {
+      "bytes": 1207,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/ticker/lib/const.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/ticker/lib/Ticker.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/ticker/lib/index.mjs": {
+      "bytes": 197,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/ticker/lib/settings.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/ticker/lib/Ticker.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/ticker/lib/TickerPlugin.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/ticker/lib/const.mjs",
           "kind": "import-statement"
         }
       ]
@@ -92,15 +447,174 @@
         }
       ]
     },
-    "node_modules/@pixi/utils/dist/esm/utils.mjs": {
-      "bytes": 30470,
+    "node_modules/@pixi/utils/lib/url.mjs": {
+      "bytes": 167,
       "imports": [
         {
-          "path": "node_modules/@pixi/settings/dist/esm/settings.mjs",
+          "path": "node_modules/url/url.js",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/utils/lib/path.mjs": {
+      "bytes": 10748,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/utils/lib/settings.mjs": {
+      "bytes": 217,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/settings/dist/esm/settings.mjs",
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/utils/lib/browser/hello.mjs": {
+      "bytes": 117,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/browser/isWebGLSupported.mjs": {
+      "bytes": 1072,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/utils/lib/settings.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/utils/lib/node_modules/css-color-names/css-color-names.mjs": {
+      "bytes": 9095,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/color/hex.mjs": {
+      "bytes": 919,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/utils/lib/node_modules/css-color-names/css-color-names.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/utils/lib/color/premultiply.mjs": {
+      "bytes": 1944,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/utils/lib/data/createIndicesForQuads.mjs": {
+      "bytes": 657,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/data/getBufferType.mjs": {
+      "bytes": 576,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/data/interleaveTypedArrays.mjs": {
+      "bytes": 996,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/utils/lib/data/getBufferType.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/utils/lib/data/pow2.mjs": {
+      "bytes": 559,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/data/removeItems.mjs": {
+      "bytes": 437,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/data/sign.mjs": {
+      "bytes": 127,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/data/uid.mjs": {
+      "bytes": 106,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/logging/deprecation.mjs": {
+      "bytes": 889,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/media/caches.mjs": {
+      "bytes": 647,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/media/CanvasRenderTarget.mjs": {
+      "bytes": 1008,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/utils/lib/media/trimCanvas.mjs": {
+      "bytes": 1307,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/const.mjs": {
+      "bytes": 154,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/network/decomposeDataUri.mjs": {
+      "bytes": 590,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/utils/lib/const.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/utils/lib/network/determineCrossOrigin.mjs": {
+      "bytes": 663,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/utils/lib/url.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/utils/lib/network/getResolutionOfUrl.mjs": {
+      "bytes": 345,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/utils/lib/settings.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/utils/lib/types/index.mjs": {
+      "bytes": 36,
+      "imports": []
+    },
+    "node_modules/@pixi/utils/lib/index.mjs": {
+      "bytes": 1592,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
           "kind": "import-statement"
         },
         {
@@ -112,72 +626,2109 @@
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/url/url.js",
+          "path": "node_modules/@pixi/utils/lib/url.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/constants/dist/esm/constants.mjs",
+          "path": "node_modules/@pixi/utils/lib/path.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/settings.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/browser/hello.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/browser/isWebGLSupported.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/color/hex.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/color/premultiply.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/data/createIndicesForQuads.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/data/getBufferType.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/data/interleaveTypedArrays.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/data/pow2.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/data/removeItems.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/data/sign.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/data/uid.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/logging/deprecation.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/media/caches.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/media/CanvasRenderTarget.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/media/trimCanvas.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/network/decomposeDataUri.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/network/determineCrossOrigin.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/network/getResolutionOfUrl.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/const.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/types/index.mjs",
           "kind": "import-statement"
         }
       ]
     },
-    "node_modules/@pixi/core/dist/esm/core.mjs": {
-      "bytes": 228528,
+    "node_modules/@pixi/core/lib/textures/resources/autoDetectResource.mjs": {
+      "bytes": 684,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/textures/resources/Resource.mjs": {
+      "bytes": 1678,
       "imports": [
         {
-          "path": "node_modules/@pixi/settings/dist/esm/settings.mjs",
+          "path": "node_modules/@pixi/runner/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/BufferResource.mjs": {
+      "bytes": 1293,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/Resource.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/settings/dist/esm/settings.mjs",
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/BaseTexture.mjs": {
+      "bytes": 7737,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/constants/dist/esm/constants.mjs",
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/constants/dist/esm/constants.mjs",
+          "path": "node_modules/@pixi/core/lib/textures/resources/Resource.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/extensions/dist/esm/extensions.mjs",
+          "path": "node_modules/@pixi/core/lib/textures/resources/BufferResource.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/extensions/dist/esm/extensions.mjs",
+          "path": "node_modules/@pixi/core/lib/textures/resources/autoDetectResource.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/math/dist/esm/math.mjs",
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/AbstractMultiResource.mjs": {
+      "bytes": 2617,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/Resource.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/math/dist/esm/math.mjs",
+          "path": "node_modules/@pixi/core/lib/textures/BaseTexture.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/runner/dist/esm/runner.mjs",
+          "path": "node_modules/@pixi/core/lib/textures/resources/autoDetectResource.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/ArrayResource.mjs": {
+      "bytes": 1611,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/runner/dist/esm/runner.mjs",
+          "path": "node_modules/@pixi/core/lib/textures/resources/AbstractMultiResource.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/BaseImageResource.mjs": {
+      "bytes": 2316,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/ticker/dist/esm/ticker.mjs",
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/ticker/dist/esm/ticker.mjs",
+          "path": "node_modules/@pixi/core/lib/textures/resources/Resource.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/CanvasResource.mjs": {
+      "bytes": 473,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/BaseImageResource.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/CubeResource.mjs": {
+      "bytes": 2680,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/AbstractMultiResource.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/utils/dist/esm/utils.mjs",
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/ImageResource.mjs": {
+      "bytes": 4170,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
           "kind": "import-statement"
         },
         {
-          "path": "node_modules/@pixi/utils/dist/esm/utils.mjs",
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/BaseImageResource.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/SVGResource.mjs": {
+      "bytes": 3465,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/BaseImageResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/VideoResource.mjs": {
+      "bytes": 5626,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/BaseImageResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/ticker/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/ImageBitmapResource.mjs": {
+      "bytes": 2559,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/BaseImageResource.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/index.mjs": {
+      "bytes": 1346,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/autoDetectResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/autoDetectResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/ArrayResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/ArrayResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/BufferResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/BufferResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/CanvasResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/CanvasResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/CubeResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/CubeResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/ImageResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/ImageResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/SVGResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/SVGResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/VideoResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/VideoResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/ImageBitmapResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/ImageBitmapResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/Resource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/BaseImageResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/AbstractMultiResource.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/resources/DepthResource.mjs": {
+      "bytes": 900,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/BufferResource.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/framebuffer/Framebuffer.mjs": {
+      "bytes": 2702,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/runner/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/BaseTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/DepthResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/renderTexture/BaseRenderTexture.mjs": {
+      "bytes": 1470,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/textures/BaseTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/framebuffer/Framebuffer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/TextureUvs.mjs": {
+      "bytes": 1727,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/Texture.mjs": {
+      "bytes": 9392,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/ImageResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/BaseTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/TextureUvs.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/renderTexture/RenderTexture.mjs": {
+      "bytes": 1464,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/BaseRenderTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/Texture.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/renderTexture/RenderTexturePool.mjs": {
+      "bytes": 3294,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/RenderTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/BaseRenderTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/geometry/Attribute.mjs": {
+      "bytes": 579,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/geometry/Buffer.mjs": {
+      "bytes": 1045,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/runner/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/geometry/utils/interleaveTypedArrays.mjs": {
+      "bytes": 996,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/geometry/Geometry.mjs": {
+      "bytes": 6303,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/Attribute.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/Buffer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/utils/interleaveTypedArrays.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/runner/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/utils/Quad.mjs": {
+      "bytes": 336,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/Geometry.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/utils/QuadUv.mjs": {
+      "bytes": 1661,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/Geometry.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/Buffer.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/UniformGroup.mjs": {
+      "bytes": 1379,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/Buffer.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/filters/FilterState.mjs": {
+      "bytes": 676,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/filters/FilterSystem.mjs": {
+      "bytes": 12261,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/RenderTexturePool.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/utils/Quad.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/utils/QuadUv.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/UniformGroup.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/filters/FilterState.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/batch/ObjectRenderer.mjs": {
+      "bytes": 290,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/batch/BatchSystem.mjs": {
+      "bytes": 1803,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/batch/ObjectRenderer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/context/ContextSystem.mjs": {
+      "bytes": 5889,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/settings.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/framebuffer/GLFramebuffer.mjs": {
+      "bytes": 438,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/framebuffer/FramebufferSystem.mjs": {
+      "bytes": 13265,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/settings.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/framebuffer/Framebuffer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/framebuffer/GLFramebuffer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/geometry/GeometrySystem.mjs": {
+      "bytes": 9835,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/settings.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/mask/MaskData.mjs": {
+      "bytes": 1513,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/utils/compileShader.mjs": {
+      "bytes": 229,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/shader/utils/logProgramError.mjs": {
+      "bytes": 1593,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/shader/utils/defaultValue.mjs": {
+      "bytes": 1639,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/shader/utils/getTestContext.mjs": {
+      "bytes": 751,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/settings.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/utils/getMaxFragmentPrecision.mjs": {
+      "bytes": 657,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/getTestContext.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/utils/setPrecision.mjs": {
+      "bytes": 644,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/utils/mapSize.mjs": {
+      "bytes": 374,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/shader/utils/mapType.mjs": {
+      "bytes": 1154,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/shader/utils/uniformParsers.mjs": {
+      "bytes": 4197,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/shader/utils/generateUniformsSync.mjs": {
+      "bytes": 5857,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/uniformParsers.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/utils/checkMaxIfStatementsInShader.mjs": {
+      "bytes": 1032,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/shader/utils/unsafeEvalSupported.mjs": {
+      "bytes": 426,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/shader/utils/index.mjs": {
+      "bytes": 727,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/compileShader.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/logProgramError.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/defaultValue.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/getMaxFragmentPrecision.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/setPrecision.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/mapSize.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/mapType.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/generateUniformsSync.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/uniformParsers.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/getTestContext.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/checkMaxIfStatementsInShader.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/unsafeEvalSupported.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/defaultProgram.mjs": {
+      "bytes": 247,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/shader/defaultProgram2.mjs": {
+      "bytes": 380,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/shader/Program.mjs": {
+      "bytes": 1921,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/defaultProgram.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/defaultProgram2.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/setPrecision.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/getMaxFragmentPrecision.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/Shader.mjs": {
+      "bytes": 1262,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/shader/Program.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/UniformGroup.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/runner/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/state/State.mjs": {
+      "bytes": 1938,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/filters/defaultFilter.mjs": {
+      "bytes": 247,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/filters/defaultFilter2.mjs": {
+      "bytes": 678,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/filters/Filter.mjs": {
+      "bytes": 1274,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/Program.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/Shader.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/state/State.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/filters/defaultFilter.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/filters/defaultFilter2.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/filters/spriteMask/spriteMaskFilter2.mjs": {
+      "bytes": 494,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/filters/spriteMask/spriteMaskFilter3.mjs": {
+      "bytes": 757,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/textures/TextureMatrix.mjs": {
+      "bytes": 2336,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/filters/spriteMask/SpriteMaskFilter.mjs": {
+      "bytes": 1630,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/filters/Filter.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/filters/spriteMask/spriteMaskFilter2.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/filters/spriteMask/spriteMaskFilter3.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/TextureMatrix.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/mask/MaskSystem.mjs": {
+      "bytes": 5783,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/mask/MaskData.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/filters/spriteMask/SpriteMaskFilter.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/mask/AbstractMaskSystem.mjs": {
+      "bytes": 754,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/mask/ScissorSystem.mjs": {
+      "bytes": 3924,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/mask/AbstractMaskSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/mask/StencilSystem.mjs": {
+      "bytes": 2690,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/mask/AbstractMaskSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/projection/ProjectionSystem.mjs": {
+      "bytes": 1641,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/renderTexture/RenderTextureSystem.mjs": {
+      "bytes": 3797,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/utils/generateUniformBufferSync.mjs": {
+      "bytes": 5148,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/uniformParsers.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/mapSize.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/GLProgram.mjs": {
+      "bytes": 507,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/shader/utils/getAttributeData.mjs": {
+      "bytes": 745,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/mapSize.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/mapType.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/utils/getUniformData.mjs": {
+      "bytes": 760,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/defaultValue.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/mapType.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/utils/generateProgram.mjs": {
+      "bytes": 2169,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/shader/GLProgram.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/compileShader.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/defaultValue.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/getAttributeData.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/getUniformData.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/logProgramError.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/shader/ShaderSystem.mjs": {
+      "bytes": 5166,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/generateUniformBufferSync.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/generateProgram.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/unsafeEvalSupported.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/generateUniformsSync.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/state/utils/mapWebGLBlendModesToPixi.mjs": {
+      "bytes": 2334,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/state/StateSystem.mjs": {
+      "bytes": 3911,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/state/utils/mapWebGLBlendModesToPixi.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/state/State.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/TextureGCSystem.mjs": {
+      "bytes": 1941,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/utils/mapTypeAndFormatToInternalFormat.mjs": {
+      "bytes": 3762,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/GLTexture.mjs": {
+      "bytes": 439,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/textures/TextureSystem.mjs": {
+      "bytes": 8881,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/textures/utils/mapTypeAndFormatToInternalFormat.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/BaseTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/GLTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/renderTexture/GenerateTextureSystem.mjs": {
+      "bytes": 1475,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/RenderTexture.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/background/BackgroundSystem.mjs": {
+      "bytes": 1372,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/view/ViewSystem.mjs": {
+      "bytes": 1606,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/plugin/PluginSystem.mjs": {
+      "bytes": 646,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/system/SystemManager.mjs": {
+      "bytes": 1559,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/runner/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/startup/StartupSystem.mjs": {
+      "bytes": 726,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/transformFeedback/TransformFeedbackSystem.mjs": {
+      "bytes": 2711,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/systems.mjs": {
+      "bytes": 1382,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/filters/FilterSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/BatchSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/context/ContextSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/framebuffer/FramebufferSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/GeometrySystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/mask/MaskSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/mask/ScissorSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/mask/StencilSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/projection/ProjectionSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/RenderTextureSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/ShaderSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/state/StateSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/TextureGCSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/TextureSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/GenerateTextureSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/background/BackgroundSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/view/ViewSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/plugin/PluginSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/system/SystemManager.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/startup/StartupSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/transformFeedback/TransformFeedbackSystem.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/IRenderer.mjs": {
+      "bytes": 40,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/autoDetectRenderer.mjs": {
+      "bytes": 461,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/fragments/default.mjs": {
+      "bytes": 376,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/fragments/defaultFilter.mjs": {
+      "bytes": 691,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/fragments/index.mjs": {
+      "bytes": 272,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/fragments/default.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/fragments/defaultFilter.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/system/ISystem.mjs": {
+      "bytes": 38,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/Renderer.mjs": {
+      "bytes": 4603,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/UniformGroup.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/system/SystemManager.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/batch/BatchDrawCall.mjs": {
+      "bytes": 308,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/batch/BatchTextureArray.mjs": {
+      "bytes": 307,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/geometry/ViewableBuffer.mjs": {
+      "bytes": 1867,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/batch/BatchShaderGenerator.mjs": {
+      "bytes": 2002,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/shader/Shader.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/Program.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/UniformGroup.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/batch/BatchGeometry.mjs": {
+      "bytes": 719,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/Geometry.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/Buffer.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/batch/texture.mjs": {
+      "bytes": 634,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/batch/texture2.mjs": {
+      "bytes": 312,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/batch/BatchRenderer.mjs": {
+      "bytes": 11617,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/batch/BatchDrawCall.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/BatchTextureArray.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/BaseTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/ObjectRenderer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/state/State.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/ViewableBuffer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/BatchShaderGenerator.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/checkMaxIfStatementsInShader.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/BatchGeometry.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/texture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/texture2.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/filters/IFilterTarget.mjs": {
+      "bytes": 44,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/transformFeedback/TransformFeedback.mjs": {
+      "bytes": 421,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/runner/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/geometry/GLBuffer.mjs": {
+      "bytes": 214,
+      "imports": []
+    },
+    "node_modules/@pixi/core/lib/geometry/BufferSystem.mjs": {
+      "bytes": 2994,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/GLBuffer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/framebuffer/MultisampleSystem.mjs": {
+      "bytes": 1316,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/render/ObjectRendererSystem.mjs": {
+      "bytes": 1830,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        }
+      ]
+    },
+    "node_modules/@pixi/core/lib/index.mjs": {
+      "bytes": 5453,
+      "imports": [
+        {
+          "path": "node_modules/@pixi/core/lib/settings.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/constants/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/extensions/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/math/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/runner/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/settings/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/ticker/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/utils/lib/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/systems.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/IRenderer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/autoDetectRenderer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/fragments/index.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/system/ISystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/plugin/PluginSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/Renderer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/framebuffer/Framebuffer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/framebuffer/GLFramebuffer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/Texture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/BaseTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/GLTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/TextureMatrix.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/RenderTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/RenderTexturePool.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/BaseRenderTexture.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/TextureUvs.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/state/State.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/ObjectRenderer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/BatchRenderer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/BatchShaderGenerator.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/BatchGeometry.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/BatchDrawCall.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/BatchTextureArray.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/utils/Quad.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/utils/QuadUv.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/checkMaxIfStatementsInShader.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/uniformParsers.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/generateUniformBufferSync.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/getTestContext.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/utils/generateProgram.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/Shader.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/Program.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/GLProgram.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/UniformGroup.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/mask/MaskData.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/filters/spriteMask/SpriteMaskFilter.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/filters/Filter.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/filters/FilterState.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/filters/IFilterTarget.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/Attribute.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/Buffer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/Geometry.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/ViewableBuffer.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/transformFeedback/TransformFeedback.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/mask/MaskSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/mask/StencilSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/mask/ScissorSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/filters/FilterSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/framebuffer/FramebufferSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/RenderTextureSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/TextureSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/projection/ProjectionSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/state/StateSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/GeometrySystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/shader/ShaderSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/context/ContextSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/batch/BatchSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/TextureGCSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/geometry/BufferSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/framebuffer/MultisampleSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/renderTexture/GenerateTextureSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/background/BackgroundSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/view/ViewSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/render/ObjectRendererSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/startup/StartupSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/transformFeedback/TransformFeedbackSystem.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/Resource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/BaseImageResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/autoDetectResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/AbstractMultiResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/ArrayResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/BufferResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/CanvasResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/CubeResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/ImageResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/SVGResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/VideoResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/textures/resources/ImageBitmapResource.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "node_modules/@pixi/core/lib/system/SystemManager.mjs",
           "kind": "import-statement"
         }
       ]
@@ -186,7 +2737,7 @@
       "bytes": 11770,
       "imports": [
         {
-          "path": "node_modules/@pixi/core/dist/esm/core.mjs",
+          "path": "node_modules/@pixi/core/lib/index.mjs",
           "kind": "import-statement"
         }
       ]
@@ -197,7 +2748,7 @@
       "imports": [],
       "exports": [],
       "inputs": {},
-      "bytes": 1040258
+      "bytes": 1008505
     },
     "dist/pixi-dashed-line.iife.js": {
       "imports": [],
@@ -208,7 +2759,7 @@
           "bytesInOutput": 6735
         },
         "node_modules/earcut/src/earcut.js": {
-          "bytesInOutput": 17104
+          "bytesInOutput": 17109
         },
         "node_modules/url/node_modules/punycode/punycode.js": {
           "bytesInOutput": 8888
@@ -231,32 +2782,440 @@
         "src/index.ts": {
           "bytesInOutput": 9621
         },
-        "node_modules/@pixi/constants/dist/esm/constants.mjs": {
+        "node_modules/@pixi/constants/lib/index.mjs": {
           "bytesInOutput": 9496
         },
-        "node_modules/@pixi/settings/dist/esm/settings.mjs": {
-          "bytesInOutput": 6093
+        "node_modules/@pixi/settings/lib/adapter.mjs": {
+          "bytesInOutput": 461
         },
-        "node_modules/@pixi/core/dist/esm/core.mjs": {
-          "bytesInOutput": 237870
+        "node_modules/@pixi/settings/lib/node_modules/ismobilejs/esm/isMobile.mjs": {
+          "bytesInOutput": 3806
         },
-        "node_modules/@pixi/extensions/dist/esm/extensions.mjs": {
-          "bytesInOutput": 3114
+        "node_modules/@pixi/settings/lib/node_modules/ismobilejs/esm/index.mjs": {
+          "bytesInOutput": 0
         },
-        "node_modules/@pixi/math/dist/esm/math.mjs": {
-          "bytesInOutput": 19122
+        "node_modules/@pixi/settings/lib/utils/isMobile.mjs": {
+          "bytesInOutput": 50
         },
-        "node_modules/@pixi/runner/dist/esm/runner.mjs": {
+        "node_modules/@pixi/settings/lib/utils/canUploadSameBuffer.mjs": {
+          "bytesInOutput": 75
+        },
+        "node_modules/@pixi/settings/lib/utils/maxRecommendedTextures.mjs": {
+          "bytesInOutput": 708
+        },
+        "node_modules/@pixi/settings/lib/settings.mjs": {
+          "bytesInOutput": 996
+        },
+        "node_modules/@pixi/settings/lib/index.mjs": {
+          "bytesInOutput": 0
+        },
+        "node_modules/@pixi/core/lib/settings.mjs": {
+          "bytesInOutput": 77
+        },
+        "node_modules/@pixi/core/lib/index.mjs": {
+          "bytesInOutput": 0
+        },
+        "node_modules/@pixi/extensions/lib/index.mjs": {
+          "bytesInOutput": 2868
+        },
+        "node_modules/@pixi/math/lib/const.mjs": {
+          "bytesInOutput": 396
+        },
+        "node_modules/@pixi/math/lib/Point.mjs": {
+          "bytesInOutput": 487
+        },
+        "node_modules/@pixi/math/lib/shapes/Rectangle.mjs": {
+          "bytesInOutput": 4920
+        },
+        "node_modules/@pixi/math/lib/index.mjs": {
+          "bytesInOutput": 0
+        },
+        "node_modules/@pixi/math/lib/ObservablePoint.mjs": {
+          "bytesInOutput": 1111
+        },
+        "node_modules/@pixi/math/lib/Matrix.mjs": {
+          "bytesInOutput": 6135
+        },
+        "node_modules/@pixi/math/lib/groupD8.mjs": {
+          "bytesInOutput": 2538
+        },
+        "node_modules/@pixi/math/lib/Transform.mjs": {
+          "bytesInOutput": 2870
+        },
+        "node_modules/@pixi/runner/lib/Runner.mjs": {
           "bytesInOutput": 1620
         },
-        "node_modules/@pixi/ticker/dist/esm/ticker.mjs": {
-          "bytesInOutput": 8160
+        "node_modules/@pixi/runner/lib/index.mjs": {
+          "bytesInOutput": 0
         },
-        "node_modules/@pixi/utils/dist/esm/utils.mjs": {
-          "bytesInOutput": 12922
+        "node_modules/@pixi/ticker/lib/settings.mjs": {
+          "bytesInOutput": 31
+        },
+        "node_modules/@pixi/ticker/lib/const.mjs": {
+          "bytesInOutput": 380
+        },
+        "node_modules/@pixi/ticker/lib/TickerListener.mjs": {
+          "bytesInOutput": 1353
+        },
+        "node_modules/@pixi/ticker/lib/Ticker.mjs": {
+          "bytesInOutput": 5315
+        },
+        "node_modules/@pixi/ticker/lib/index.mjs": {
+          "bytesInOutput": 0
+        },
+        "node_modules/@pixi/ticker/lib/TickerPlugin.mjs": {
+          "bytesInOutput": 1081
+        },
+        "node_modules/@pixi/utils/lib/index.mjs": {
+          "bytesInOutput": 118
+        },
+        "node_modules/@pixi/utils/lib/url.mjs": {
+          "bytesInOutput": 157
+        },
+        "node_modules/@pixi/utils/lib/settings.mjs": {
+          "bytesInOutput": 96
+        },
+        "node_modules/@pixi/utils/lib/browser/isWebGLSupported.mjs": {
+          "bytesInOutput": 986
+        },
+        "node_modules/@pixi/utils/lib/node_modules/css-color-names/css-color-names.mjs": {
+          "bytesInOutput": 6520
+        },
+        "node_modules/@pixi/utils/lib/color/hex.mjs": {
+          "bytesInOutput": 698
+        },
+        "node_modules/@pixi/utils/lib/color/premultiply.mjs": {
+          "bytesInOutput": 1000
+        },
+        "node_modules/@pixi/utils/lib/data/getBufferType.mjs": {
+          "bytesInOutput": 544
+        },
+        "node_modules/@pixi/utils/lib/data/pow2.mjs": {
+          "bytesInOutput": 543
+        },
+        "node_modules/@pixi/utils/lib/data/removeItems.mjs": {
+          "bytesInOutput": 397
+        },
+        "node_modules/@pixi/utils/lib/data/uid.mjs": {
+          "bytesInOutput": 64
+        },
+        "node_modules/@pixi/utils/lib/media/caches.mjs": {
+          "bytesInOutput": 145
+        },
+        "node_modules/@pixi/utils/lib/network/determineCrossOrigin.mjs": {
+          "bytesInOutput": 578
+        },
+        "node_modules/@pixi/utils/lib/network/getResolutionOfUrl.mjs": {
+          "bytesInOutput": 213
+        },
+        "node_modules/@pixi/core/lib/textures/resources/autoDetectResource.mjs": {
+          "bytesInOutput": 631
+        },
+        "node_modules/@pixi/core/lib/textures/resources/index.mjs": {
+          "bytesInOutput": 143
+        },
+        "node_modules/@pixi/core/lib/textures/resources/Resource.mjs": {
+          "bytesInOutput": 1721
+        },
+        "node_modules/@pixi/core/lib/textures/resources/BufferResource.mjs": {
+          "bytesInOutput": 1197
+        },
+        "node_modules/@pixi/core/lib/textures/BaseTexture.mjs": {
+          "bytesInOutput": 7776
+        },
+        "node_modules/@pixi/core/lib/textures/resources/AbstractMultiResource.mjs": {
+          "bytesInOutput": 2537
+        },
+        "node_modules/@pixi/core/lib/textures/resources/ArrayResource.mjs": {
+          "bytesInOutput": 1527
+        },
+        "node_modules/@pixi/core/lib/textures/resources/BaseImageResource.mjs": {
+          "bytesInOutput": 2213
+        },
+        "node_modules/@pixi/core/lib/textures/resources/CanvasResource.mjs": {
+          "bytesInOutput": 370
+        },
+        "node_modules/@pixi/core/lib/textures/resources/CubeResource.mjs": {
+          "bytesInOutput": 2633
+        },
+        "node_modules/@pixi/core/lib/textures/resources/ImageResource.mjs": {
+          "bytesInOutput": 4228
+        },
+        "node_modules/@pixi/core/lib/textures/resources/SVGResource.mjs": {
+          "bytesInOutput": 3447
+        },
+        "node_modules/@pixi/core/lib/textures/resources/VideoResource.mjs": {
+          "bytesInOutput": 5794
+        },
+        "node_modules/@pixi/core/lib/textures/resources/ImageBitmapResource.mjs": {
+          "bytesInOutput": 2495
+        },
+        "node_modules/@pixi/core/lib/textures/resources/DepthResource.mjs": {
+          "bytesInOutput": 766
+        },
+        "node_modules/@pixi/core/lib/framebuffer/Framebuffer.mjs": {
+          "bytesInOutput": 2554
+        },
+        "node_modules/@pixi/core/lib/renderTexture/BaseRenderTexture.mjs": {
+          "bytesInOutput": 1285
+        },
+        "node_modules/@pixi/core/lib/textures/TextureUvs.mjs": {
+          "bytesInOutput": 1735
+        },
+        "node_modules/@pixi/core/lib/textures/Texture.mjs": {
+          "bytesInOutput": 9593
+        },
+        "node_modules/@pixi/core/lib/renderTexture/RenderTexture.mjs": {
+          "bytesInOutput": 1370
+        },
+        "node_modules/@pixi/core/lib/renderTexture/RenderTexturePool.mjs": {
+          "bytesInOutput": 3202
+        },
+        "node_modules/@pixi/core/lib/geometry/Attribute.mjs": {
+          "bytesInOutput": 516
+        },
+        "node_modules/@pixi/core/lib/geometry/Buffer.mjs": {
+          "bytesInOutput": 987
+        },
+        "node_modules/@pixi/core/lib/geometry/utils/interleaveTypedArrays.mjs": {
+          "bytesInOutput": 931
+        },
+        "node_modules/@pixi/core/lib/geometry/Geometry.mjs": {
+          "bytesInOutput": 6337
+        },
+        "node_modules/@pixi/core/lib/utils/Quad.mjs": {
+          "bytesInOutput": 267
+        },
+        "node_modules/@pixi/core/lib/utils/QuadUv.mjs": {
+          "bytesInOutput": 1625
+        },
+        "node_modules/@pixi/core/lib/shader/UniformGroup.mjs": {
+          "bytesInOutput": 1311
+        },
+        "node_modules/@pixi/core/lib/filters/FilterState.mjs": {
+          "bytesInOutput": 568
+        },
+        "node_modules/@pixi/core/lib/filters/FilterSystem.mjs": {
+          "bytesInOutput": 12288
+        },
+        "node_modules/@pixi/core/lib/systems.mjs": {
+          "bytesInOutput": 0
+        },
+        "node_modules/@pixi/core/lib/batch/ObjectRenderer.mjs": {
+          "bytesInOutput": 259
+        },
+        "node_modules/@pixi/core/lib/batch/BatchSystem.mjs": {
+          "bytesInOutput": 1748
+        },
+        "node_modules/@pixi/core/lib/context/ContextSystem.mjs": {
+          "bytesInOutput": 5957
+        },
+        "node_modules/@pixi/core/lib/framebuffer/GLFramebuffer.mjs": {
+          "bytesInOutput": 352
+        },
+        "node_modules/@pixi/core/lib/framebuffer/FramebufferSystem.mjs": {
+          "bytesInOutput": 13548
+        },
+        "node_modules/@pixi/core/lib/geometry/GeometrySystem.mjs": {
+          "bytesInOutput": 10137
+        },
+        "node_modules/@pixi/core/lib/mask/MaskData.mjs": {
+          "bytesInOutput": 1478
+        },
+        "node_modules/@pixi/core/lib/shader/utils/compileShader.mjs": {
+          "bytesInOutput": 171
+        },
+        "node_modules/@pixi/core/lib/shader/utils/index.mjs": {
+          "bytesInOutput": 0
+        },
+        "node_modules/@pixi/core/lib/shader/utils/logProgramError.mjs": {
+          "bytesInOutput": 1595
+        },
+        "node_modules/@pixi/core/lib/shader/utils/defaultValue.mjs": {
+          "bytesInOutput": 1737
+        },
+        "node_modules/@pixi/core/lib/shader/utils/getTestContext.mjs": {
+          "bytesInOutput": 607
+        },
+        "node_modules/@pixi/core/lib/shader/utils/getMaxFragmentPrecision.mjs": {
+          "bytesInOutput": 494
+        },
+        "node_modules/@pixi/core/lib/shader/utils/setPrecision.mjs": {
+          "bytesInOutput": 554
+        },
+        "node_modules/@pixi/core/lib/shader/utils/mapSize.mjs": {
+          "bytesInOutput": 364
+        },
+        "node_modules/@pixi/core/lib/shader/utils/mapType.mjs": {
+          "bytesInOutput": 1178
+        },
+        "node_modules/@pixi/core/lib/shader/utils/uniformParsers.mjs": {
+          "bytesInOutput": 4189
+        },
+        "node_modules/@pixi/core/lib/shader/utils/generateUniformsSync.mjs": {
+          "bytesInOutput": 5871
+        },
+        "node_modules/@pixi/core/lib/shader/utils/checkMaxIfStatementsInShader.mjs": {
+          "bytesInOutput": 1004
+        },
+        "node_modules/@pixi/core/lib/shader/utils/unsafeEvalSupported.mjs": {
+          "bytesInOutput": 370
+        },
+        "node_modules/@pixi/core/lib/shader/defaultProgram.mjs": {
+          "bytesInOutput": 165
+        },
+        "node_modules/@pixi/core/lib/shader/defaultProgram2.mjs": {
+          "bytesInOutput": 299
+        },
+        "node_modules/@pixi/core/lib/shader/Program.mjs": {
+          "bytesInOutput": 1554
+        },
+        "node_modules/@pixi/core/lib/shader/Shader.mjs": {
+          "bytesInOutput": 1165
+        },
+        "node_modules/@pixi/core/lib/state/State.mjs": {
+          "bytesInOutput": 1997
+        },
+        "node_modules/@pixi/core/lib/filters/defaultFilter.mjs": {
+          "bytesInOutput": 167
+        },
+        "node_modules/@pixi/core/lib/filters/defaultFilter2.mjs": {
+          "bytesInOutput": 599
+        },
+        "node_modules/@pixi/core/lib/filters/Filter.mjs": {
+          "bytesInOutput": 1008
+        },
+        "node_modules/@pixi/core/lib/filters/spriteMask/spriteMaskFilter2.mjs": {
+          "bytesInOutput": 418
+        },
+        "node_modules/@pixi/core/lib/filters/spriteMask/spriteMaskFilter3.mjs": {
+          "bytesInOutput": 679
+        },
+        "node_modules/@pixi/core/lib/textures/TextureMatrix.mjs": {
+          "bytesInOutput": 2363
+        },
+        "node_modules/@pixi/core/lib/filters/spriteMask/SpriteMaskFilter.mjs": {
+          "bytesInOutput": 1403
+        },
+        "node_modules/@pixi/core/lib/mask/MaskSystem.mjs": {
+          "bytesInOutput": 5827
+        },
+        "node_modules/@pixi/core/lib/mask/AbstractMaskSystem.mjs": {
+          "bytesInOutput": 741
+        },
+        "node_modules/@pixi/core/lib/mask/ScissorSystem.mjs": {
+          "bytesInOutput": 3842
+        },
+        "node_modules/@pixi/core/lib/mask/StencilSystem.mjs": {
+          "bytesInOutput": 2606
+        },
+        "node_modules/@pixi/core/lib/projection/ProjectionSystem.mjs": {
+          "bytesInOutput": 1561
+        },
+        "node_modules/@pixi/core/lib/renderTexture/RenderTextureSystem.mjs": {
+          "bytesInOutput": 3821
+        },
+        "node_modules/@pixi/core/lib/shader/utils/generateUniformBufferSync.mjs": {
+          "bytesInOutput": 5136
+        },
+        "node_modules/@pixi/core/lib/shader/GLProgram.mjs": {
+          "bytesInOutput": 443
+        },
+        "node_modules/@pixi/core/lib/shader/utils/getAttributeData.mjs": {
+          "bytesInOutput": 624
+        },
+        "node_modules/@pixi/core/lib/shader/utils/getUniformData.mjs": {
+          "bytesInOutput": 633
+        },
+        "node_modules/@pixi/core/lib/shader/utils/generateProgram.mjs": {
+          "bytesInOutput": 1855
+        },
+        "node_modules/@pixi/core/lib/shader/ShaderSystem.mjs": {
+          "bytesInOutput": 4996
+        },
+        "node_modules/@pixi/core/lib/state/utils/mapWebGLBlendModesToPixi.mjs": {
+          "bytesInOutput": 2260
+        },
+        "node_modules/@pixi/core/lib/state/StateSystem.mjs": {
+          "bytesInOutput": 3879
+        },
+        "node_modules/@pixi/core/lib/textures/TextureGCSystem.mjs": {
+          "bytesInOutput": 1852
+        },
+        "node_modules/@pixi/core/lib/textures/utils/mapTypeAndFormatToInternalFormat.mjs": {
+          "bytesInOutput": 3831
+        },
+        "node_modules/@pixi/core/lib/textures/GLTexture.mjs": {
+          "bytesInOutput": 361
+        },
+        "node_modules/@pixi/core/lib/textures/TextureSystem.mjs": {
+          "bytesInOutput": 8864
+        },
+        "node_modules/@pixi/core/lib/renderTexture/GenerateTextureSystem.mjs": {
+          "bytesInOutput": 1314
+        },
+        "node_modules/@pixi/core/lib/background/BackgroundSystem.mjs": {
+          "bytesInOutput": 1271
+        },
+        "node_modules/@pixi/core/lib/view/ViewSystem.mjs": {
+          "bytesInOutput": 1485
+        },
+        "node_modules/@pixi/core/lib/plugin/PluginSystem.mjs": {
+          "bytesInOutput": 572
+        },
+        "node_modules/@pixi/core/lib/system/SystemManager.mjs": {
+          "bytesInOutput": 1524
+        },
+        "node_modules/@pixi/core/lib/startup/StartupSystem.mjs": {
+          "bytesInOutput": 646
+        },
+        "node_modules/@pixi/core/lib/transformFeedback/TransformFeedbackSystem.mjs": {
+          "bytesInOutput": 2727
+        },
+        "node_modules/@pixi/core/lib/autoDetectRenderer.mjs": {
+          "bytesInOutput": 84
+        },
+        "node_modules/@pixi/core/lib/Renderer.mjs": {
+          "bytesInOutput": 4554
+        },
+        "node_modules/@pixi/core/lib/batch/BatchDrawCall.mjs": {
+          "bytesInOutput": 218
+        },
+        "node_modules/@pixi/core/lib/batch/BatchTextureArray.mjs": {
+          "bytesInOutput": 262
+        },
+        "node_modules/@pixi/core/lib/geometry/ViewableBuffer.mjs": {
+          "bytesInOutput": 1946
+        },
+        "node_modules/@pixi/core/lib/batch/BatchShaderGenerator.mjs": {
+          "bytesInOutput": 1840
+        },
+        "node_modules/@pixi/core/lib/batch/BatchGeometry.mjs": {
+          "bytesInOutput": 530
+        },
+        "node_modules/@pixi/core/lib/batch/texture.mjs": {
+          "bytesInOutput": 562
+        },
+        "node_modules/@pixi/core/lib/batch/texture2.mjs": {
+          "bytesInOutput": 237
+        },
+        "node_modules/@pixi/core/lib/batch/BatchRenderer.mjs": {
+          "bytesInOutput": 11332
+        },
+        "node_modules/@pixi/core/lib/geometry/GLBuffer.mjs": {
+          "bytesInOutput": 177
+        },
+        "node_modules/@pixi/core/lib/geometry/BufferSystem.mjs": {
+          "bytesInOutput": 3003
+        },
+        "node_modules/@pixi/core/lib/framebuffer/MultisampleSystem.mjs": {
+          "bytesInOutput": 1204
+        },
+        "node_modules/@pixi/core/lib/render/ObjectRendererSystem.mjs": {
+          "bytesInOutput": 1806
         }
       },
-      "bytes": 367101
+      "bytes": 369821
     }
   }
 }

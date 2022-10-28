@@ -1,6 +1,6 @@
 {
   "name": "pixi-dashed-line",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Ben Clark <bennyc@gmail.com",
   "description": "Pixi.js dashed lines",
   "repository": "github:Bonkles/pixi-dashed-line",
@@ -24,9 +24,9 @@
     "require": "./dist/pixi-dashed-line.cjs"
   },
   "dependencies": {
-    "@pixi/core": "^7.0.0-beta.3",
-    "@pixi/graphics": "^7.0.0-beta.3",
-    "@pixi/display": "^7.0.0-beta.3"
+    "@pixi/core": "^7.0.0",
+    "@pixi/graphics": "^7.0.0",
+    "@pixi/display": "^7.0.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.0",
