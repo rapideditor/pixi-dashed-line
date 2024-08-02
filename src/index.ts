@@ -1,5 +1,5 @@
-import { Matrix, Point, SCALE_MODES, Texture } from '@pixi/core';
-import { Graphics, LINE_CAP, LINE_JOIN } from '@pixi/graphics';
+import { Matrix, Point, Texture } from '@pixi/core';
+import { Graphics, LineCap, LineJoin } from '@pixi/graphics';
 
 /** Define the dash: [dash length, gap size, dash size, gap size, ...] */
 export type Dashes = number[];
@@ -12,8 +12,8 @@ export interface DashLineOptions {
   scale?: number;
   useTexture?: boolean;
   useDots?: boolean;
-  cap?: LINE_CAP;
-  join?: LINE_JOIN;
+  cap?: LineCap;
+  join?: LineJoin;
   alignment?: number;
 }
 
@@ -74,15 +74,23 @@ export class DashLine {
     this.dashSize = this.dash.reduce((a, b) => a + b);
     this.useTexture = options.useTexture;
     this.options = options;
-    this.setLineStyle();
+    this.setStrokeStyle();
+  }
+
+  stroke() {
+    this.graphics.stroke();
+  }
+
+  beginPath() {
+    this.graphics.beginPath();
   }
 
   /** resets line style to enable dashed line (useful if lineStyle was changed on graphics element) */
-  setLineStyle() {
+  setStrokeStyle() {
     const options = this.options;
     if (this.useTexture) {
       const texture = DashLine.getTexture(options, this.dashSize);
-      this.graphics.lineTextureStyle({
+      this.graphics.setStrokeStyle({
         width: options.width * options.scale,
         color: options.color,
         alpha: options.alpha,
@@ -91,7 +99,7 @@ export class DashLine {
       });
       this.activeTexture = texture;
     } else {
-      this.graphics.lineStyle({
+      this.graphics.setStrokeStyle({
         width: options.width * options.scale,
         color: options.color,
         alpha: options.alpha,
@@ -142,7 +150,7 @@ export class DashLine {
       }
 
     } else {
-      this.setLineStyle();  // Not sure why this fixes #2?
+      this.setStrokeStyle();  // Not sure why this fixes #2?
 
       // Determine where in the dash pattern the cursor is starting from.
       const origin = this.lineLength % (this.dashSize * this.scale);
@@ -208,7 +216,7 @@ export class DashLine {
   }
 
 
-  drawCircle(x: number, y: number, radius: number, points = 80, matrix?: Matrix): this {
+  circle(x: number, y: number, radius: number, points = 80, matrix?: Matrix): this {
     const interval = (Math.PI * 2) / points;
     let angle = 0;
     let first = new Point(x + Math.cos(angle) * radius, y + Math.sin(angle) * radius);
@@ -228,7 +236,7 @@ export class DashLine {
   }
 
 
-  drawEllipse(x: number, y: number, radiusX: number, radiusY: number, points = 80, matrix?: Matrix ): this {
+  ellipse(x: number, y: number, radiusX: number, radiusY: number, points = 80, matrix?: Matrix ): this {
     const interval = (Math.PI * 2) / points;
     let first: { x: number; y: number };
     const point = new Point();
@@ -254,7 +262,7 @@ export class DashLine {
   }
 
 
-  drawPolygon(points: Point[] | number[], matrix?: Matrix): this {
+  polygon(points: Point[] | number[], matrix?: Matrix): this {
     const p = new Point();
     if (typeof points[0] === 'number') {
       if (matrix) {
@@ -297,7 +305,7 @@ export class DashLine {
   }
 
 
-  drawRect(x: number, y: number, width: number, height: number, matrix?: Matrix): this {
+  rect(x: number, y: number, width: number, height: number, matrix?: Matrix): this {
     if (matrix) {
       const p = new Point();
 
@@ -338,7 +346,7 @@ export class DashLine {
 
   // adjust the matrix for the dashed texture
   private adjustLineStyle(angle: number) {
-    const lineStyle = this.graphics.line;
+    const lineStyle = this.graphics.strokeStyle;
     lineStyle.matrix = new Matrix();
     if (angle) {
       lineStyle.matrix.rotate(angle);
@@ -349,7 +357,7 @@ export class DashLine {
       this.cursor.x + textureStart * Math.cos(angle),
       this.cursor.y + textureStart * Math.sin(angle)
     );
-    this.graphics.lineStyle(lineStyle);
+    this.graphics.strokeStyle(lineStyle);
   }
 
 
@@ -383,7 +391,7 @@ export class DashLine {
     }
     context.stroke();
     const texture = (DashLine.dashTextureCache[key] = Texture.from(canvas));
-    texture.baseTexture.scaleMode = SCALE_MODES.NEAREST;
+    texture.source.scaleMode = "nearest"
     return texture;
   }
 }

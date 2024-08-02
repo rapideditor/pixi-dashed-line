@@ -1,6 +1,6 @@
 {
   "name": "@rapideditor/pixi-dashed-line",
-  "version": "7.4.0",
+  "version": "8.2.5",
   "contributors": [
     "Ben Clark <clarkben@fb.com> (https://github.com/bonkles)",
     "Bryan Housel <bhousel@gmail.com> (https://github.com/bhousel)"
@@ -26,9 +26,9 @@
     "require": "./dist/pixi-dashed-line.cjs"
   },
   "dependencies": {
-    "@pixi/core": "7.4.0",
-    "@pixi/display": "7.4.0",
-    "@pixi/graphics": "7.4.0"
+    "@pixi/core": "8.2.5",
+    "@pixi/display": "8.2.5",
+    "@pixi/graphics": "8.2.5"
   },
   "devDependencies": {
     "esbuild": "^0.20.0",

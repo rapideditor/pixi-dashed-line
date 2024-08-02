@@ -3599,11 +3599,9 @@ Deprecated since v${version}`), console.warn(stack))), warnings[message] = true;
   };
   var f = function(r2) {
     return b((n2 = (t2 = r2).s, { h: t2.h, s: (n2 *= ((e2 = t2.l) < 50 ? e2 : 100 - e2) / 100) > 0 ? 2 * n2 / (e2 + n2) * 100 : 0, v: e2 + n2, a: t2.a }));
-    var t2, n2, e2;
   };
   var c = function(r2) {
     return { h: (t2 = h(r2)).h, s: (u2 = (200 - (n2 = t2.s)) * (e2 = t2.v) / 100) > 0 && u2 < 200 ? n2 * e2 / 100 / (u2 <= 100 ? u2 : 200 - u2) * 100 : 0, l: u2 / 2, a: t2.a };
-    var t2, n2, e2, u2;
   };
   var l = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i;
   var p = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i;
@@ -3675,23 +3673,18 @@ Deprecated since v${version}`), console.warn(stack))), warnings[message] = true;
       return H(this.rgba) >= 0.5;
     }, r2.prototype.toHex = function() {
       return r3 = o(this.rgba), t2 = r3.r, e2 = r3.g, u2 = r3.b, i2 = (a2 = r3.a) < 1 ? s(n(255 * a2)) : "", "#" + s(t2) + s(e2) + s(u2) + i2;
-      var r3, t2, e2, u2, a2, i2;
     }, r2.prototype.toRgb = function() {
       return o(this.rgba);
     }, r2.prototype.toRgbString = function() {
       return r3 = o(this.rgba), t2 = r3.r, n2 = r3.g, e2 = r3.b, (u2 = r3.a) < 1 ? "rgba(" + t2 + ", " + n2 + ", " + e2 + ", " + u2 + ")" : "rgb(" + t2 + ", " + n2 + ", " + e2 + ")";
-      var r3, t2, n2, e2, u2;
     }, r2.prototype.toHsl = function() {
       return d(c(this.rgba));
     }, r2.prototype.toHslString = function() {
       return r3 = d(c(this.rgba)), t2 = r3.h, n2 = r3.s, e2 = r3.l, (u2 = r3.a) < 1 ? "hsla(" + t2 + ", " + n2 + "%, " + e2 + "%, " + u2 + ")" : "hsl(" + t2 + ", " + n2 + "%, " + e2 + "%)";
-      var r3, t2, n2, e2, u2;
     }, r2.prototype.toHsv = function() {
       return r3 = h(this.rgba), { h: n(r3.h), s: n(r3.s), v: n(r3.v), a: n(r3.a, 3) };
-      var r3;
     }, r2.prototype.invert = function() {
       return w({ r: 255 - (r3 = this.rgba).r, g: 255 - r3.g, b: 255 - r3.b, a: r3.a });
-      var r3;
     }, r2.prototype.saturate = function(r3) {
       return void 0 === r3 && (r3 = 0.1), w(M(this.rgba, r3));
     }, r2.prototype.desaturate = function(r3) {
@@ -3706,7 +3699,6 @@ Deprecated since v${version}`), console.warn(stack))), warnings[message] = true;
       return void 0 === r3 && (r3 = 15), this.hue(this.hue() + r3);
     }, r2.prototype.alpha = function(r3) {
       return "number" == typeof r3 ? w({ r: (t2 = this.rgba).r, g: t2.g, b: t2.b, a: r3 }) : n(this.rgba.a, 3);
-      var t2;
     }, r2.prototype.hue = function(r3) {
       var t2 = c(this.rgba);
       return "number" == typeof r3 ? w({ h: r3, s: t2.s, l: t2.l, a: t2.a }) : n(t2.h);
