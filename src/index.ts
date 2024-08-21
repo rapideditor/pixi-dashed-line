@@ -1,5 +1,7 @@
-import { Matrix, Point, Texture } from '@pixi/core';
-import { Graphics, LineCap, LineJoin } from '@pixi/graphics';
+import * as PIXI from 'pixi.js'
+
+// import { Matrix, Point, Texture } from '@pixi/core';
+// import { Graphics, LineCap, LineJoin } from '@pixi/graphics';
 
 /** Define the dash: [dash length, gap size, dash size, gap size, ...] */
 export type Dashes = number[];
@@ -12,8 +14,8 @@ export interface DashLineOptions {
   scale?: number;
   useTexture?: boolean;
   useDots?: boolean;
-  cap?: LineCap;
-  join?: LineJoin;
+  cap?: PIXI.LineCap;
+  join?: PIXI.LineJoin;
   alignment?: number;
 }
 
@@ -29,21 +31,21 @@ const dashLineOptionsDefault: Partial<DashLineOptions> = {
 
 
 export class DashLine {
-  graphics: Graphics;
+  graphics: PIXI.Graphics;
 
   /** current length of the line */
   lineLength: number;
 
   /** cursor location */
-  cursor = new Point();
+  cursor = new PIXI.Point();
 
   /** desired scale of line */
   scale = 1;
 
   // sanity check to ensure the lineStyle is still in use
-  private activeTexture: Texture;
+  private activeTexture: PIXI.Texture;
 
-  private start: Point;
+  private start: PIXI.Point;
 
   private dashSize: number;
   private dash: number[];
@@ -52,7 +54,7 @@ export class DashLine {
   private options: DashLineOptions;
 
   // cache of Textures for dashed lines
-  static dashTextureCache: Record<string, Texture> = {};
+  static dashTextureCache: Record<string, PIXI.Texture> = {};
 
   /**
    * Create a DashLine
@@ -67,7 +69,7 @@ export class DashLine {
    * @param [options.join] - add a LINE_JOIN style to the dashed lines (only works for useTexture: false)
    * @param [options.alignment] - The alignment of any lines drawn (0.5 = middle, 1 = outer, 0 = inner)
    */
-  constructor(graphics: Graphics, options: DashLineOptions = {}) {
+  constructor(graphics: PIXI.Graphics, options: DashLineOptions = {}) {
     this.graphics = graphics;
     options = { ...dashLineOptionsDefault, ...options };
     this.dash = options.dash;
@@ -119,7 +121,7 @@ export class DashLine {
   moveTo(x: number, y: number): this {
     this.lineLength = 0;
     this.cursor.set(x, y);
-    this.start = new Point(x, y);
+    this.start = new PIXI.Point(x, y);
     this.graphics.moveTo(this.cursor.x, this.cursor.y);
     return this;
   }
@@ -216,10 +218,10 @@ export class DashLine {
   }
 
 
-  circle(x: number, y: number, radius: number, points = 80, matrix?: Matrix): this {
+  circle(x: number, y: number, radius: number, points = 80, matrix?: PIXI.Matrix): this {
     const interval = (Math.PI * 2) / points;
     let angle = 0;
-    let first = new Point(x + Math.cos(angle) * radius, y + Math.sin(angle) * radius);
+    let first = new PIXI.Point(x + Math.cos(angle) * radius, y + Math.sin(angle) * radius);
     if (matrix) {
       matrix.apply(first, first);
       this.moveTo(first[0], first[1]);
@@ -236,10 +238,10 @@ export class DashLine {
   }
 
 
-  ellipse(x: number, y: number, radiusX: number, radiusY: number, points = 80, matrix?: Matrix ): this {
+  ellipse(x: number, y: number, radiusX: number, radiusY: number, points = 80, matrix?: PIXI.Matrix ): this {
     const interval = (Math.PI * 2) / points;
     let first: { x: number; y: number };
-    const point = new Point();
+    const point = new PIXI.Point();
     let f = 0;
     for (let i = 0; i < Math.PI * 2; i += interval) {
       let x0 = x - radiusX * Math.sin(i);
@@ -262,8 +264,8 @@ export class DashLine {
   }
 
 
-  polygon(points: Point[] | number[], matrix?: Matrix): this {
-    const p = new Point();
+  polygon(points: PIXI.Point[] | number[], matrix?: PIXI.Matrix): this {
+    const p = new PIXI.Point();
     if (typeof points[0] === 'number') {
       if (matrix) {
         p.set(points[0] as number, points[1] as number);
@@ -282,21 +284,21 @@ export class DashLine {
       }
     } else {
       if (matrix) {
-        const point = points[0] as Point;
+        const point = points[0] as PIXI.Point;
         p.copyFrom(point);
         matrix.apply(p, p);
         this.moveTo(p.x, p.y);
         for (let i = 1; i < points.length; i++) {
-          const point = points[i] as Point;
+          const point = points[i] as PIXI.Point;
           p.copyFrom(point);
           matrix.apply(p, p);
           this.lineTo(p.x, p.y, i === points.length - 1);
         }
       } else {
-        const point = points[0] as Point;
+        const point = points[0] as PIXI.Point;
         this.moveTo(point.x, point.y);
         for (let i = 1; i < points.length; i++) {
-          const point = points[i] as Point;
+          const point = points[i] as PIXI.Point;
           this.lineTo(point.x, point.y, i === points.length - 1);
         }
       }
@@ -305,9 +307,9 @@ export class DashLine {
   }
 
 
-  rect(x: number, y: number, width: number, height: number, matrix?: Matrix): this {
+  rect(x: number, y: number, width: number, height: number, matrix?: PIXI.Matrix): this {
     if (matrix) {
-      const p = new Point();
+      const p = new PIXI.Point();
 
       // moveTo(x, y)
       p.set(x, y);
@@ -347,7 +349,7 @@ export class DashLine {
   // adjust the matrix for the dashed texture
   private adjustLineStyle(angle: number) {
     const lineStyle = this.graphics.strokeStyle;
-    lineStyle.matrix = new Matrix();
+    lineStyle.matrix = new PIXI.Matrix();
     if (angle) {
       lineStyle.matrix.rotate(angle);
     }
@@ -357,12 +359,12 @@ export class DashLine {
       this.cursor.x + textureStart * Math.cos(angle),
       this.cursor.y + textureStart * Math.sin(angle)
     );
-    this.graphics.strokeStyle(lineStyle);
+    this.graphics.setStrokeStyle(lineStyle);
   }
 
 
   // creates or uses cached texture
-  private static getTexture(options: DashLineOptions, dashSize: number): Texture {
+  private static getTexture(options: DashLineOptions, dashSize: number): PIXI.Texture {
     const key = options.dash.toString();
     if (DashLine.dashTextureCache[key]) {
       return DashLine.dashTextureCache[key];
@@ -390,7 +392,7 @@ export class DashLine {
       }
     }
     context.stroke();
-    const texture = (DashLine.dashTextureCache[key] = Texture.from(canvas));
+    const texture = (DashLine.dashTextureCache[key] = PIXI.Texture.from(canvas));
     texture.source.scaleMode = "nearest"
     return texture;
   }
