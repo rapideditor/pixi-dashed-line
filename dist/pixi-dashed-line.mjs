@@ -1,5 +1,5 @@
 // src/index.ts
-import { Matrix, Point, SCALE_MODES, Texture } from "@pixi/core";
+import { Matrix, Point, Texture } from "@pixi/core";
 var dashLineOptionsDefault = {
   dash: [10, 5],
   width: 1,
@@ -34,14 +34,20 @@ var _DashLine = class _DashLine {
     this.dashSize = this.dash.reduce((a, b) => a + b);
     this.useTexture = options.useTexture;
     this.options = options;
-    this.setLineStyle();
+    this.setStrokeStyle();
+  }
+  stroke() {
+    this.graphics.stroke();
+  }
+  beginPath() {
+    this.graphics.beginPath();
   }
   /** resets line style to enable dashed line (useful if lineStyle was changed on graphics element) */
-  setLineStyle() {
+  setStrokeStyle() {
     const options = this.options;
     if (this.useTexture) {
       const texture = _DashLine.getTexture(options, this.dashSize);
-      this.graphics.lineTextureStyle({
+      this.graphics.setStrokeStyle({
         width: options.width * options.scale,
         color: options.color,
         alpha: options.alpha,
@@ -50,7 +56,7 @@ var _DashLine = class _DashLine {
       });
       this.activeTexture = texture;
     } else {
-      this.graphics.lineStyle({
+      this.graphics.setStrokeStyle({
         width: options.width * options.scale,
         color: options.color,
         alpha: options.alpha,
@@ -94,7 +100,7 @@ var _DashLine = class _DashLine {
         this.graphics.lineTo(x, y);
       }
     } else {
-      this.setLineStyle();
+      this.setStrokeStyle();
       const origin = this.lineLength % (this.dashSize * this.scale);
       let dashIndex = 0;
       let dashStart = 0;
@@ -147,7 +153,7 @@ var _DashLine = class _DashLine {
   closePath() {
     this.lineTo(this.start.x, this.start.y, true);
   }
-  drawCircle(x, y, radius, points = 80, matrix) {
+  circle(x, y, radius, points = 80, matrix) {
     const interval = Math.PI * 2 / points;
     let angle = 0;
     let first = new Point(x + Math.cos(angle) * radius, y + Math.sin(angle) * radius);
@@ -165,7 +171,7 @@ var _DashLine = class _DashLine {
     }
     return this;
   }
-  drawEllipse(x, y, radiusX, radiusY, points = 80, matrix) {
+  ellipse(x, y, radiusX, radiusY, points = 80, matrix) {
     const interval = Math.PI * 2 / points;
     let first;
     const point = new Point();
@@ -189,7 +195,7 @@ var _DashLine = class _DashLine {
     this.lineTo(first.x, first.y, true);
     return this;
   }
-  drawPolygon(points, matrix) {
+  polygon(points, matrix) {
     const p = new Point();
     if (typeof points[0] === "number") {
       if (matrix) {
@@ -230,7 +236,7 @@ var _DashLine = class _DashLine {
     }
     return this;
   }
-  drawRect(x, y, width, height, matrix) {
+  rect(x, y, width, height, matrix) {
     if (matrix) {
       const p = new Point();
       p.set(x, y);
@@ -255,7 +261,7 @@ var _DashLine = class _DashLine {
   }
   // adjust the matrix for the dashed texture
   adjustLineStyle(angle) {
-    const lineStyle = this.graphics.line;
+    const lineStyle = this.graphics.strokeStyle;
     lineStyle.matrix = new Matrix();
     if (angle) {
       lineStyle.matrix.rotate(angle);
@@ -267,7 +273,7 @@ var _DashLine = class _DashLine {
       this.cursor.x + textureStart * Math.cos(angle),
       this.cursor.y + textureStart * Math.sin(angle)
     );
-    this.graphics.lineStyle(lineStyle);
+    this.graphics.strokeStyle(lineStyle);
   }
   // creates or uses cached texture
   static getTexture(options, dashSize) {
@@ -299,7 +305,7 @@ var _DashLine = class _DashLine {
     }
     context.stroke();
     const texture = _DashLine.dashTextureCache[key] = Texture.from(canvas);
-    texture.baseTexture.scaleMode = SCALE_MODES.NEAREST;
+    texture.source.scaleMode = "nearest";
     return texture;
   }
 };

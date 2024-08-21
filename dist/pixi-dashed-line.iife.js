@@ -925,6 +925,62 @@ var PixiDashLine = (() => {
     }
   });
 
+  // node_modules/es-errors/index.js
+  var require_es_errors = __commonJS({
+    "node_modules/es-errors/index.js"(exports, module) {
+      "use strict";
+      module.exports = Error;
+    }
+  });
+
+  // node_modules/es-errors/eval.js
+  var require_eval = __commonJS({
+    "node_modules/es-errors/eval.js"(exports, module) {
+      "use strict";
+      module.exports = EvalError;
+    }
+  });
+
+  // node_modules/es-errors/range.js
+  var require_range = __commonJS({
+    "node_modules/es-errors/range.js"(exports, module) {
+      "use strict";
+      module.exports = RangeError;
+    }
+  });
+
+  // node_modules/es-errors/ref.js
+  var require_ref = __commonJS({
+    "node_modules/es-errors/ref.js"(exports, module) {
+      "use strict";
+      module.exports = ReferenceError;
+    }
+  });
+
+  // node_modules/es-errors/syntax.js
+  var require_syntax = __commonJS({
+    "node_modules/es-errors/syntax.js"(exports, module) {
+      "use strict";
+      module.exports = SyntaxError;
+    }
+  });
+
+  // node_modules/es-errors/type.js
+  var require_type = __commonJS({
+    "node_modules/es-errors/type.js"(exports, module) {
+      "use strict";
+      module.exports = TypeError;
+    }
+  });
+
+  // node_modules/es-errors/uri.js
+  var require_uri = __commonJS({
+    "node_modules/es-errors/uri.js"(exports, module) {
+      "use strict";
+      module.exports = URIError;
+    }
+  });
+
   // node_modules/has-symbols/shams.js
   var require_shams = __commonJS({
     "node_modules/has-symbols/shams.js"(exports, module) {
@@ -1001,44 +1057,84 @@ var PixiDashLine = (() => {
     }
   });
 
+  // node_modules/has-proto/index.js
+  var require_has_proto = __commonJS({
+    "node_modules/has-proto/index.js"(exports, module) {
+      "use strict";
+      var test = {
+        foo: {}
+      };
+      var $Object = Object;
+      module.exports = function hasProto() {
+        return { __proto__: test }.foo === test.foo && !({ __proto__: null } instanceof $Object);
+      };
+    }
+  });
+
   // node_modules/function-bind/implementation.js
   var require_implementation = __commonJS({
     "node_modules/function-bind/implementation.js"(exports, module) {
       "use strict";
       var ERROR_MESSAGE = "Function.prototype.bind called on incompatible ";
-      var slice = Array.prototype.slice;
       var toStr = Object.prototype.toString;
+      var max = Math.max;
       var funcType = "[object Function]";
+      var concatty = function concatty2(a2, b2) {
+        var arr = [];
+        for (var i2 = 0; i2 < a2.length; i2 += 1) {
+          arr[i2] = a2[i2];
+        }
+        for (var j2 = 0; j2 < b2.length; j2 += 1) {
+          arr[j2 + a2.length] = b2[j2];
+        }
+        return arr;
+      };
+      var slicy = function slicy2(arrLike, offset) {
+        var arr = [];
+        for (var i2 = offset || 0, j2 = 0; i2 < arrLike.length; i2 += 1, j2 += 1) {
+          arr[j2] = arrLike[i2];
+        }
+        return arr;
+      };
+      var joiny = function(arr, joiner) {
+        var str = "";
+        for (var i2 = 0; i2 < arr.length; i2 += 1) {
+          str += arr[i2];
+          if (i2 + 1 < arr.length) {
+            str += joiner;
+          }
+        }
+        return str;
+      };
       module.exports = function bind(that) {
         var target = this;
-        if (typeof target !== "function" || toStr.call(target) !== funcType) {
+        if (typeof target !== "function" || toStr.apply(target) !== funcType) {
           throw new TypeError(ERROR_MESSAGE + target);
         }
-        var args = slice.call(arguments, 1);
+        var args = slicy(arguments, 1);
         var bound;
         var binder = function() {
           if (this instanceof bound) {
             var result = target.apply(
               this,
-              args.concat(slice.call(arguments))
+              concatty(args, arguments)
             );
             if (Object(result) === result) {
               return result;
             }
             return this;
-          } else {
-            return target.apply(
-              that,
-              args.concat(slice.call(arguments))
-            );
           }
+          return target.apply(
+            that,
+            concatty(args, arguments)
+          );
         };
-        var boundLength = Math.max(0, target.length - args.length);
+        var boundLength = max(0, target.length - args.length);
         var boundArgs = [];
         for (var i2 = 0; i2 < boundLength; i2++) {
-          boundArgs.push("$" + i2);
+          boundArgs[i2] = "$" + i2;
         }
-        bound = Function("binder", "return function (" + boundArgs.join(",") + "){ return binder.apply(this,arguments); }")(binder);
+        bound = Function("binder", "return function (" + joiny(boundArgs, ",") + "){ return binder.apply(this,arguments); }")(binder);
         if (target.prototype) {
           var Empty = function Empty2() {
           };
@@ -1060,12 +1156,14 @@ var PixiDashLine = (() => {
     }
   });
 
-  // node_modules/has/src/index.js
-  var require_src = __commonJS({
-    "node_modules/has/src/index.js"(exports, module) {
+  // node_modules/hasown/index.js
+  var require_hasown = __commonJS({
+    "node_modules/hasown/index.js"(exports, module) {
       "use strict";
+      var call = Function.prototype.call;
+      var $hasOwn = Object.prototype.hasOwnProperty;
       var bind = require_function_bind();
-      module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+      module.exports = bind.call(call, $hasOwn);
     }
   });
 
@@ -1074,9 +1172,14 @@ var PixiDashLine = (() => {
     "node_modules/get-intrinsic/index.js"(exports, module) {
       "use strict";
       var undefined2;
-      var $SyntaxError = SyntaxError;
+      var $Error = require_es_errors();
+      var $EvalError = require_eval();
+      var $RangeError = require_range();
+      var $ReferenceError = require_ref();
+      var $SyntaxError = require_syntax();
+      var $TypeError = require_type();
+      var $URIError = require_uri();
       var $Function = Function;
-      var $TypeError = TypeError;
       var getEvalledConstructor = function(expressionSyntax) {
         try {
           return $Function('"use strict"; return (' + expressionSyntax + ").constructor;")();
@@ -1107,16 +1210,18 @@ var PixiDashLine = (() => {
         }
       }() : throwTypeError;
       var hasSymbols = require_has_symbols()();
-      var getProto = Object.getPrototypeOf || function(x2) {
+      var hasProto = require_has_proto()();
+      var getProto = Object.getPrototypeOf || (hasProto ? function(x2) {
         return x2.__proto__;
-      };
+      } : null);
       var needsEval = {};
-      var TypedArray = typeof Uint8Array === "undefined" ? undefined2 : getProto(Uint8Array);
+      var TypedArray = typeof Uint8Array === "undefined" || !getProto ? undefined2 : getProto(Uint8Array);
       var INTRINSICS = {
+        __proto__: null,
         "%AggregateError%": typeof AggregateError === "undefined" ? undefined2 : AggregateError,
         "%Array%": Array,
         "%ArrayBuffer%": typeof ArrayBuffer === "undefined" ? undefined2 : ArrayBuffer,
-        "%ArrayIteratorPrototype%": hasSymbols ? getProto([][Symbol.iterator]()) : undefined2,
+        "%ArrayIteratorPrototype%": hasSymbols && getProto ? getProto([][Symbol.iterator]()) : undefined2,
         "%AsyncFromSyncIteratorPrototype%": undefined2,
         "%AsyncFunction%": needsEval,
         "%AsyncGenerator%": needsEval,
@@ -1133,10 +1238,10 @@ var PixiDashLine = (() => {
         "%decodeURIComponent%": decodeURIComponent,
         "%encodeURI%": encodeURI,
         "%encodeURIComponent%": encodeURIComponent,
-        "%Error%": Error,
+        "%Error%": $Error,
         "%eval%": eval,
         // eslint-disable-line no-eval
-        "%EvalError%": EvalError,
+        "%EvalError%": $EvalError,
         "%Float32Array%": typeof Float32Array === "undefined" ? undefined2 : Float32Array,
         "%Float64Array%": typeof Float64Array === "undefined" ? undefined2 : Float64Array,
         "%FinalizationRegistry%": typeof FinalizationRegistry === "undefined" ? undefined2 : FinalizationRegistry,
@@ -1147,10 +1252,10 @@ var PixiDashLine = (() => {
         "%Int32Array%": typeof Int32Array === "undefined" ? undefined2 : Int32Array,
         "%isFinite%": isFinite,
         "%isNaN%": isNaN,
-        "%IteratorPrototype%": hasSymbols ? getProto(getProto([][Symbol.iterator]())) : undefined2,
+        "%IteratorPrototype%": hasSymbols && getProto ? getProto(getProto([][Symbol.iterator]())) : undefined2,
         "%JSON%": typeof JSON === "object" ? JSON : undefined2,
         "%Map%": typeof Map === "undefined" ? undefined2 : Map,
-        "%MapIteratorPrototype%": typeof Map === "undefined" || !hasSymbols ? undefined2 : getProto((/* @__PURE__ */ new Map())[Symbol.iterator]()),
+        "%MapIteratorPrototype%": typeof Map === "undefined" || !hasSymbols || !getProto ? undefined2 : getProto((/* @__PURE__ */ new Map())[Symbol.iterator]()),
         "%Math%": Math,
         "%Number%": Number,
         "%Object%": Object,
@@ -1158,15 +1263,15 @@ var PixiDashLine = (() => {
         "%parseInt%": parseInt,
         "%Promise%": typeof Promise === "undefined" ? undefined2 : Promise,
         "%Proxy%": typeof Proxy === "undefined" ? undefined2 : Proxy,
-        "%RangeError%": RangeError,
-        "%ReferenceError%": ReferenceError,
+        "%RangeError%": $RangeError,
+        "%ReferenceError%": $ReferenceError,
         "%Reflect%": typeof Reflect === "undefined" ? undefined2 : Reflect,
         "%RegExp%": RegExp,
         "%Set%": typeof Set === "undefined" ? undefined2 : Set,
-        "%SetIteratorPrototype%": typeof Set === "undefined" || !hasSymbols ? undefined2 : getProto((/* @__PURE__ */ new Set())[Symbol.iterator]()),
+        "%SetIteratorPrototype%": typeof Set === "undefined" || !hasSymbols || !getProto ? undefined2 : getProto((/* @__PURE__ */ new Set())[Symbol.iterator]()),
         "%SharedArrayBuffer%": typeof SharedArrayBuffer === "undefined" ? undefined2 : SharedArrayBuffer,
         "%String%": String,
-        "%StringIteratorPrototype%": hasSymbols ? getProto(""[Symbol.iterator]()) : undefined2,
+        "%StringIteratorPrototype%": hasSymbols && getProto ? getProto(""[Symbol.iterator]()) : undefined2,
         "%Symbol%": hasSymbols ? Symbol : undefined2,
         "%SyntaxError%": $SyntaxError,
         "%ThrowTypeError%": ThrowTypeError,
@@ -1176,16 +1281,18 @@ var PixiDashLine = (() => {
         "%Uint8ClampedArray%": typeof Uint8ClampedArray === "undefined" ? undefined2 : Uint8ClampedArray,
         "%Uint16Array%": typeof Uint16Array === "undefined" ? undefined2 : Uint16Array,
         "%Uint32Array%": typeof Uint32Array === "undefined" ? undefined2 : Uint32Array,
-        "%URIError%": URIError,
+        "%URIError%": $URIError,
         "%WeakMap%": typeof WeakMap === "undefined" ? undefined2 : WeakMap,
         "%WeakRef%": typeof WeakRef === "undefined" ? undefined2 : WeakRef,
         "%WeakSet%": typeof WeakSet === "undefined" ? undefined2 : WeakSet
       };
-      try {
-        null.error;
-      } catch (e2) {
-        errorProto = getProto(getProto(e2));
-        INTRINSICS["%Error.prototype%"] = errorProto;
+      if (getProto) {
+        try {
+          null.error;
+        } catch (e2) {
+          errorProto = getProto(getProto(e2));
+          INTRINSICS["%Error.prototype%"] = errorProto;
+        }
       }
       var errorProto;
       var doEval = function doEval2(name) {
@@ -1203,7 +1310,7 @@ var PixiDashLine = (() => {
           }
         } else if (name === "%AsyncIteratorPrototype%") {
           var gen = doEval2("%AsyncGenerator%");
-          if (gen) {
+          if (gen && getProto) {
             value = getProto(gen.prototype);
           }
         }
@@ -1211,6 +1318,7 @@ var PixiDashLine = (() => {
         return value;
       };
       var LEGACY_ALIASES = {
+        __proto__: null,
         "%ArrayBufferPrototype%": ["ArrayBuffer", "prototype"],
         "%ArrayPrototype%": ["Array", "prototype"],
         "%ArrayProto_entries%": ["Array", "prototype", "entries"],
@@ -1264,7 +1372,7 @@ var PixiDashLine = (() => {
         "%WeakSetPrototype%": ["WeakSet", "prototype"]
       };
       var bind = require_function_bind();
-      var hasOwn = require_src();
+      var hasOwn = require_hasown();
       var $concat = bind.call(Function.call, Array.prototype.concat);
       var $spliceApply = bind.call(Function.apply, Array.prototype.splice);
       var $replace = bind.call(Function.call, String.prototype.replace);
@@ -1373,38 +1481,186 @@ var PixiDashLine = (() => {
     }
   });
 
+  // node_modules/es-define-property/index.js
+  var require_es_define_property = __commonJS({
+    "node_modules/es-define-property/index.js"(exports, module) {
+      "use strict";
+      var GetIntrinsic = require_get_intrinsic();
+      var $defineProperty = GetIntrinsic("%Object.defineProperty%", true) || false;
+      if ($defineProperty) {
+        try {
+          $defineProperty({}, "a", { value: 1 });
+        } catch (e2) {
+          $defineProperty = false;
+        }
+      }
+      module.exports = $defineProperty;
+    }
+  });
+
+  // node_modules/gopd/index.js
+  var require_gopd = __commonJS({
+    "node_modules/gopd/index.js"(exports, module) {
+      "use strict";
+      var GetIntrinsic = require_get_intrinsic();
+      var $gOPD = GetIntrinsic("%Object.getOwnPropertyDescriptor%", true);
+      if ($gOPD) {
+        try {
+          $gOPD([], "length");
+        } catch (e2) {
+          $gOPD = null;
+        }
+      }
+      module.exports = $gOPD;
+    }
+  });
+
+  // node_modules/define-data-property/index.js
+  var require_define_data_property = __commonJS({
+    "node_modules/define-data-property/index.js"(exports, module) {
+      "use strict";
+      var $defineProperty = require_es_define_property();
+      var $SyntaxError = require_syntax();
+      var $TypeError = require_type();
+      var gopd = require_gopd();
+      module.exports = function defineDataProperty(obj, property, value) {
+        if (!obj || typeof obj !== "object" && typeof obj !== "function") {
+          throw new $TypeError("`obj` must be an object or a function`");
+        }
+        if (typeof property !== "string" && typeof property !== "symbol") {
+          throw new $TypeError("`property` must be a string or a symbol`");
+        }
+        if (arguments.length > 3 && typeof arguments[3] !== "boolean" && arguments[3] !== null) {
+          throw new $TypeError("`nonEnumerable`, if provided, must be a boolean or null");
+        }
+        if (arguments.length > 4 && typeof arguments[4] !== "boolean" && arguments[4] !== null) {
+          throw new $TypeError("`nonWritable`, if provided, must be a boolean or null");
+        }
+        if (arguments.length > 5 && typeof arguments[5] !== "boolean" && arguments[5] !== null) {
+          throw new $TypeError("`nonConfigurable`, if provided, must be a boolean or null");
+        }
+        if (arguments.length > 6 && typeof arguments[6] !== "boolean") {
+          throw new $TypeError("`loose`, if provided, must be a boolean");
+        }
+        var nonEnumerable = arguments.length > 3 ? arguments[3] : null;
+        var nonWritable = arguments.length > 4 ? arguments[4] : null;
+        var nonConfigurable = arguments.length > 5 ? arguments[5] : null;
+        var loose = arguments.length > 6 ? arguments[6] : false;
+        var desc = !!gopd && gopd(obj, property);
+        if ($defineProperty) {
+          $defineProperty(obj, property, {
+            configurable: nonConfigurable === null && desc ? desc.configurable : !nonConfigurable,
+            enumerable: nonEnumerable === null && desc ? desc.enumerable : !nonEnumerable,
+            value,
+            writable: nonWritable === null && desc ? desc.writable : !nonWritable
+          });
+        } else if (loose || !nonEnumerable && !nonWritable && !nonConfigurable) {
+          obj[property] = value;
+        } else {
+          throw new $SyntaxError("This environment does not support defining a property as non-configurable, non-writable, or non-enumerable.");
+        }
+      };
+    }
+  });
+
+  // node_modules/has-property-descriptors/index.js
+  var require_has_property_descriptors = __commonJS({
+    "node_modules/has-property-descriptors/index.js"(exports, module) {
+      "use strict";
+      var $defineProperty = require_es_define_property();
+      var hasPropertyDescriptors = function hasPropertyDescriptors2() {
+        return !!$defineProperty;
+      };
+      hasPropertyDescriptors.hasArrayLengthDefineBug = function hasArrayLengthDefineBug() {
+        if (!$defineProperty) {
+          return null;
+        }
+        try {
+          return $defineProperty([], "length", { value: 1 }).length !== 1;
+        } catch (e2) {
+          return true;
+        }
+      };
+      module.exports = hasPropertyDescriptors;
+    }
+  });
+
+  // node_modules/set-function-length/index.js
+  var require_set_function_length = __commonJS({
+    "node_modules/set-function-length/index.js"(exports, module) {
+      "use strict";
+      var GetIntrinsic = require_get_intrinsic();
+      var define2 = require_define_data_property();
+      var hasDescriptors = require_has_property_descriptors()();
+      var gOPD = require_gopd();
+      var $TypeError = require_type();
+      var $floor = GetIntrinsic("%Math.floor%");
+      module.exports = function setFunctionLength(fn, length) {
+        if (typeof fn !== "function") {
+          throw new $TypeError("`fn` is not a function");
+        }
+        if (typeof length !== "number" || length < 0 || length > 4294967295 || $floor(length) !== length) {
+          throw new $TypeError("`length` must be a positive 32-bit integer");
+        }
+        var loose = arguments.length > 2 && !!arguments[2];
+        var functionLengthIsConfigurable = true;
+        var functionLengthIsWritable = true;
+        if ("length" in fn && gOPD) {
+          var desc = gOPD(fn, "length");
+          if (desc && !desc.configurable) {
+            functionLengthIsConfigurable = false;
+          }
+          if (desc && !desc.writable) {
+            functionLengthIsWritable = false;
+          }
+        }
+        if (functionLengthIsConfigurable || functionLengthIsWritable || !loose) {
+          if (hasDescriptors) {
+            define2(
+              /** @type {Parameters<define>[0]} */
+              fn,
+              "length",
+              length,
+              true,
+              true
+            );
+          } else {
+            define2(
+              /** @type {Parameters<define>[0]} */
+              fn,
+              "length",
+              length
+            );
+          }
+        }
+        return fn;
+      };
+    }
+  });
+
   // node_modules/call-bind/index.js
   var require_call_bind = __commonJS({
     "node_modules/call-bind/index.js"(exports, module) {
       "use strict";
       var bind = require_function_bind();
       var GetIntrinsic = require_get_intrinsic();
+      var setFunctionLength = require_set_function_length();
+      var $TypeError = require_type();
       var $apply = GetIntrinsic("%Function.prototype.apply%");
       var $call = GetIntrinsic("%Function.prototype.call%");
       var $reflectApply = GetIntrinsic("%Reflect.apply%", true) || bind.call($call, $apply);
-      var $gOPD = GetIntrinsic("%Object.getOwnPropertyDescriptor%", true);
-      var $defineProperty = GetIntrinsic("%Object.defineProperty%", true);
+      var $defineProperty = require_es_define_property();
       var $max = GetIntrinsic("%Math.max%");
-      if ($defineProperty) {
-        try {
-          $defineProperty({}, "a", { value: 1 });
-        } catch (e2) {
-          $defineProperty = null;
-        }
-      }
       module.exports = function callBind(originalFunction) {
-        var func = $reflectApply(bind, $call, arguments);
-        if ($gOPD && $defineProperty) {
-          var desc = $gOPD(func, "length");
-          if (desc.configurable) {
-            $defineProperty(
-              func,
-              "length",
-              { value: 1 + $max(0, originalFunction.length - (arguments.length - 1)) }
-            );
-          }
+        if (typeof originalFunction !== "function") {
+          throw new $TypeError("a function is required");
         }
-        return func;
+        var func = $reflectApply(bind, $call, arguments);
+        return setFunctionLength(
+          func,
+          1 + $max(0, originalFunction.length - (arguments.length - 1)),
+          true
+        );
       };
       var applyBind = function applyBind2() {
         return $reflectApply(bind, $apply, arguments);
@@ -1655,6 +1911,12 @@ var PixiDashLine = (() => {
         }
         if (isString(obj)) {
           return markBoxed(inspect(String(obj)));
+        }
+        if (typeof window !== "undefined" && obj === window) {
+          return "{ [object Window] }";
+        }
+        if (typeof globalThis !== "undefined" && obj === globalThis || typeof global !== "undefined" && obj === global) {
+          return "{ [object globalThis] }";
         }
         if (!isDate(obj) && !isRegExp(obj)) {
           var ys = arrObjKeys(obj, inspect);
@@ -1956,7 +2218,7 @@ var PixiDashLine = (() => {
       var GetIntrinsic = require_get_intrinsic();
       var callBound = require_callBound();
       var inspect = require_object_inspect();
-      var $TypeError = GetIntrinsic("%TypeError%");
+      var $TypeError = require_type();
       var $WeakMap = GetIntrinsic("%WeakMap%", true);
       var $Map = GetIntrinsic("%Map%", true);
       var $weakMapGet = callBound("WeakMap.prototype.get", true);
@@ -1966,10 +2228,13 @@ var PixiDashLine = (() => {
       var $mapSet = callBound("Map.prototype.set", true);
       var $mapHas = callBound("Map.prototype.has", true);
       var listGetNode = function(list, key) {
-        for (var prev = list, curr; (curr = prev.next) !== null; prev = curr) {
+        var prev = list;
+        var curr;
+        for (; (curr = prev.next) !== null; prev = curr) {
           if (curr.key === key) {
             prev.next = curr.next;
-            curr.next = list.next;
+            curr.next = /** @type {NonNullable<typeof list.next>} */
+            list.next;
             list.next = curr;
             return curr;
           }
@@ -1984,8 +2249,9 @@ var PixiDashLine = (() => {
         if (node) {
           node.value = value;
         } else {
-          objects.next = {
-            // eslint-disable-line no-param-reassign
+          objects.next = /** @type {import('.').ListNode<typeof value>} */
+          {
+            // eslint-disable-line no-param-reassign, no-extra-parens
             key,
             next: objects.next,
             value
@@ -2189,6 +2455,7 @@ var PixiDashLine = (() => {
           return strWithoutPlus;
         }
       };
+      var limit = 1024;
       var encode = function encode2(str, defaultEncoder, charset, kind, format2) {
         if (str.length === 0) {
           return str;
@@ -2205,27 +2472,32 @@ var PixiDashLine = (() => {
           });
         }
         var out = "";
-        for (var i2 = 0; i2 < string.length; ++i2) {
-          var c2 = string.charCodeAt(i2);
-          if (c2 === 45 || c2 === 46 || c2 === 95 || c2 === 126 || c2 >= 48 && c2 <= 57 || c2 >= 65 && c2 <= 90 || c2 >= 97 && c2 <= 122 || format2 === formats.RFC1738 && (c2 === 40 || c2 === 41)) {
-            out += string.charAt(i2);
-            continue;
+        for (var j2 = 0; j2 < string.length; j2 += limit) {
+          var segment = string.length >= limit ? string.slice(j2, j2 + limit) : string;
+          var arr = [];
+          for (var i2 = 0; i2 < segment.length; ++i2) {
+            var c2 = segment.charCodeAt(i2);
+            if (c2 === 45 || c2 === 46 || c2 === 95 || c2 === 126 || c2 >= 48 && c2 <= 57 || c2 >= 65 && c2 <= 90 || c2 >= 97 && c2 <= 122 || format2 === formats.RFC1738 && (c2 === 40 || c2 === 41)) {
+              arr[arr.length] = segment.charAt(i2);
+              continue;
+            }
+            if (c2 < 128) {
+              arr[arr.length] = hexTable[c2];
+              continue;
+            }
+            if (c2 < 2048) {
+              arr[arr.length] = hexTable[192 | c2 >> 6] + hexTable[128 | c2 & 63];
+              continue;
+            }
+            if (c2 < 55296 || c2 >= 57344) {
+              arr[arr.length] = hexTable[224 | c2 >> 12] + hexTable[128 | c2 >> 6 & 63] + hexTable[128 | c2 & 63];
+              continue;
+            }
+            i2 += 1;
+            c2 = 65536 + ((c2 & 1023) << 10 | segment.charCodeAt(i2) & 1023);
+            arr[arr.length] = hexTable[240 | c2 >> 18] + hexTable[128 | c2 >> 12 & 63] + hexTable[128 | c2 >> 6 & 63] + hexTable[128 | c2 & 63];
           }
-          if (c2 < 128) {
-            out = out + hexTable[c2];
-            continue;
-          }
-          if (c2 < 2048) {
-            out = out + (hexTable[192 | c2 >> 6] + hexTable[128 | c2 & 63]);
-            continue;
-          }
-          if (c2 < 55296 || c2 >= 57344) {
-            out = out + (hexTable[224 | c2 >> 12] + hexTable[128 | c2 >> 6 & 63] + hexTable[128 | c2 & 63]);
-            continue;
-          }
-          i2 += 1;
-          c2 = 65536 + ((c2 & 1023) << 10 | string.charCodeAt(i2) & 1023);
-          out += hexTable[240 | c2 >> 18] + hexTable[128 | c2 >> 12 & 63] + hexTable[128 | c2 >> 6 & 63] + hexTable[128 | c2 & 63];
+          out += arr.join("");
         }
         return out;
       };
@@ -2315,10 +2587,13 @@ var PixiDashLine = (() => {
       var defaults = {
         addQueryPrefix: false,
         allowDots: false,
+        allowEmptyArrays: false,
+        arrayFormat: "indices",
         charset: "utf-8",
         charsetSentinel: false,
         delimiter: "&",
         encode: true,
+        encodeDotInKeys: false,
         encoder: utils.encode,
         encodeValuesOnly: false,
         format: defaultFormat,
@@ -2335,7 +2610,7 @@ var PixiDashLine = (() => {
         return typeof v2 === "string" || typeof v2 === "number" || typeof v2 === "boolean" || typeof v2 === "symbol" || typeof v2 === "bigint";
       };
       var sentinel = {};
-      var stringify = function stringify2(object, prefix, generateArrayPrefix, commaRoundTrip, strictNullHandling, skipNulls, encoder, filter, sort, allowDots, serializeDate, format2, formatter, encodeValuesOnly, charset, sideChannel) {
+      var stringify = function stringify2(object, prefix, generateArrayPrefix, commaRoundTrip, allowEmptyArrays, strictNullHandling, skipNulls, encodeDotInKeys, encoder, filter, sort, allowDots, serializeDate, format2, formatter, encodeValuesOnly, charset, sideChannel) {
         var obj = object;
         var tmpSc = sideChannel;
         var step = 0;
@@ -2395,14 +2670,19 @@ var PixiDashLine = (() => {
           var keys = Object.keys(obj);
           objKeys = sort ? keys.sort(sort) : keys;
         }
-        var adjustedPrefix = commaRoundTrip && isArray(obj) && obj.length === 1 ? prefix + "[]" : prefix;
+        var encodedPrefix = encodeDotInKeys ? prefix.replace(/\./g, "%2E") : prefix;
+        var adjustedPrefix = commaRoundTrip && isArray(obj) && obj.length === 1 ? encodedPrefix + "[]" : encodedPrefix;
+        if (allowEmptyArrays && isArray(obj) && obj.length === 0) {
+          return adjustedPrefix + "[]";
+        }
         for (var j2 = 0; j2 < objKeys.length; ++j2) {
           var key = objKeys[j2];
           var value = typeof key === "object" && typeof key.value !== "undefined" ? key.value : obj[key];
           if (skipNulls && value === null) {
             continue;
           }
-          var keyPrefix = isArray(obj) ? typeof generateArrayPrefix === "function" ? generateArrayPrefix(adjustedPrefix, key) : adjustedPrefix : adjustedPrefix + (allowDots ? "." + key : "[" + key + "]");
+          var encodedKey = allowDots && encodeDotInKeys ? key.replace(/\./g, "%2E") : key;
+          var keyPrefix = isArray(obj) ? typeof generateArrayPrefix === "function" ? generateArrayPrefix(adjustedPrefix, encodedKey) : adjustedPrefix : adjustedPrefix + (allowDots ? "." + encodedKey : "[" + encodedKey + "]");
           sideChannel.set(object, step);
           var valueSideChannel = getSideChannel();
           valueSideChannel.set(sentinel, sideChannel);
@@ -2411,8 +2691,10 @@ var PixiDashLine = (() => {
             keyPrefix,
             generateArrayPrefix,
             commaRoundTrip,
+            allowEmptyArrays,
             strictNullHandling,
             skipNulls,
+            encodeDotInKeys,
             generateArrayPrefix === "comma" && encodeValuesOnly && isArray(obj) ? null : encoder,
             filter,
             sort,
@@ -2430,6 +2712,12 @@ var PixiDashLine = (() => {
       var normalizeStringifyOptions = function normalizeStringifyOptions2(opts) {
         if (!opts) {
           return defaults;
+        }
+        if (typeof opts.allowEmptyArrays !== "undefined" && typeof opts.allowEmptyArrays !== "boolean") {
+          throw new TypeError("`allowEmptyArrays` option can only be `true` or `false`, when provided");
+        }
+        if (typeof opts.encodeDotInKeys !== "undefined" && typeof opts.encodeDotInKeys !== "boolean") {
+          throw new TypeError("`encodeDotInKeys` option can only be `true` or `false`, when provided");
         }
         if (opts.encoder !== null && typeof opts.encoder !== "undefined" && typeof opts.encoder !== "function") {
           throw new TypeError("Encoder has to be a function.");
@@ -2450,13 +2738,29 @@ var PixiDashLine = (() => {
         if (typeof opts.filter === "function" || isArray(opts.filter)) {
           filter = opts.filter;
         }
+        var arrayFormat;
+        if (opts.arrayFormat in arrayPrefixGenerators) {
+          arrayFormat = opts.arrayFormat;
+        } else if ("indices" in opts) {
+          arrayFormat = opts.indices ? "indices" : "repeat";
+        } else {
+          arrayFormat = defaults.arrayFormat;
+        }
+        if ("commaRoundTrip" in opts && typeof opts.commaRoundTrip !== "boolean") {
+          throw new TypeError("`commaRoundTrip` must be a boolean, or absent");
+        }
+        var allowDots = typeof opts.allowDots === "undefined" ? opts.encodeDotInKeys === true ? true : defaults.allowDots : !!opts.allowDots;
         return {
           addQueryPrefix: typeof opts.addQueryPrefix === "boolean" ? opts.addQueryPrefix : defaults.addQueryPrefix,
-          allowDots: typeof opts.allowDots === "undefined" ? defaults.allowDots : !!opts.allowDots,
+          allowDots,
+          allowEmptyArrays: typeof opts.allowEmptyArrays === "boolean" ? !!opts.allowEmptyArrays : defaults.allowEmptyArrays,
+          arrayFormat,
           charset,
           charsetSentinel: typeof opts.charsetSentinel === "boolean" ? opts.charsetSentinel : defaults.charsetSentinel,
+          commaRoundTrip: opts.commaRoundTrip,
           delimiter: typeof opts.delimiter === "undefined" ? defaults.delimiter : opts.delimiter,
           encode: typeof opts.encode === "boolean" ? opts.encode : defaults.encode,
+          encodeDotInKeys: typeof opts.encodeDotInKeys === "boolean" ? opts.encodeDotInKeys : defaults.encodeDotInKeys,
           encoder: typeof opts.encoder === "function" ? opts.encoder : defaults.encoder,
           encodeValuesOnly: typeof opts.encodeValuesOnly === "boolean" ? opts.encodeValuesOnly : defaults.encodeValuesOnly,
           filter,
@@ -2484,19 +2788,8 @@ var PixiDashLine = (() => {
         if (typeof obj !== "object" || obj === null) {
           return "";
         }
-        var arrayFormat;
-        if (opts && opts.arrayFormat in arrayPrefixGenerators) {
-          arrayFormat = opts.arrayFormat;
-        } else if (opts && "indices" in opts) {
-          arrayFormat = opts.indices ? "indices" : "repeat";
-        } else {
-          arrayFormat = "indices";
-        }
-        var generateArrayPrefix = arrayPrefixGenerators[arrayFormat];
-        if (opts && "commaRoundTrip" in opts && typeof opts.commaRoundTrip !== "boolean") {
-          throw new TypeError("`commaRoundTrip` must be a boolean, or absent");
-        }
-        var commaRoundTrip = generateArrayPrefix === "comma" && opts && opts.commaRoundTrip;
+        var generateArrayPrefix = arrayPrefixGenerators[options.arrayFormat];
+        var commaRoundTrip = generateArrayPrefix === "comma" && options.commaRoundTrip;
         if (!objKeys) {
           objKeys = Object.keys(obj);
         }
@@ -2514,8 +2807,10 @@ var PixiDashLine = (() => {
             key,
             generateArrayPrefix,
             commaRoundTrip,
+            options.allowEmptyArrays,
             options.strictNullHandling,
             options.skipNulls,
+            options.encodeDotInKeys,
             options.encode ? options.encoder : null,
             options.filter,
             options.sort,
@@ -2551,20 +2846,24 @@ var PixiDashLine = (() => {
       var isArray = Array.isArray;
       var defaults = {
         allowDots: false,
+        allowEmptyArrays: false,
         allowPrototypes: false,
         allowSparse: false,
         arrayLimit: 20,
         charset: "utf-8",
         charsetSentinel: false,
         comma: false,
+        decodeDotInKeys: false,
         decoder: utils.decode,
         delimiter: "&",
         depth: 5,
+        duplicates: "combine",
         ignoreQueryPrefix: false,
         interpretNumericEntities: false,
         parameterLimit: 1e3,
         parseArrays: true,
         plainObjects: false,
+        strictDepth: false,
         strictNullHandling: false
       };
       var interpretNumericEntities = function(str) {
@@ -2583,6 +2882,7 @@ var PixiDashLine = (() => {
       var parseValues = function parseQueryStringValues(str, options) {
         var obj = { __proto__: null };
         var cleanStr = options.ignoreQueryPrefix ? str.replace(/^\?/, "") : str;
+        cleanStr = cleanStr.replace(/%5B/gi, "[").replace(/%5D/gi, "]");
         var limit = options.parameterLimit === Infinity ? void 0 : options.parameterLimit;
         var parts = cleanStr.split(options.delimiter, limit);
         var skipIndex = -1;
@@ -2627,9 +2927,10 @@ var PixiDashLine = (() => {
           if (part.indexOf("[]=") > -1) {
             val = isArray(val) ? [val] : val;
           }
-          if (has.call(obj, key)) {
+          var existing = has.call(obj, key);
+          if (existing && options.duplicates === "combine") {
             obj[key] = utils.combine(obj[key], val);
-          } else {
+          } else if (!existing || options.duplicates === "last") {
             obj[key] = val;
           }
         }
@@ -2641,18 +2942,19 @@ var PixiDashLine = (() => {
           var obj;
           var root = chain[i2];
           if (root === "[]" && options.parseArrays) {
-            obj = [].concat(leaf);
+            obj = options.allowEmptyArrays && (leaf === "" || options.strictNullHandling && leaf === null) ? [] : [].concat(leaf);
           } else {
             obj = options.plainObjects ? /* @__PURE__ */ Object.create(null) : {};
             var cleanRoot = root.charAt(0) === "[" && root.charAt(root.length - 1) === "]" ? root.slice(1, -1) : root;
-            var index = parseInt(cleanRoot, 10);
-            if (!options.parseArrays && cleanRoot === "") {
+            var decodedRoot = options.decodeDotInKeys ? cleanRoot.replace(/%2E/g, ".") : cleanRoot;
+            var index = parseInt(decodedRoot, 10);
+            if (!options.parseArrays && decodedRoot === "") {
               obj = { 0: leaf };
-            } else if (!isNaN(index) && root !== cleanRoot && String(index) === cleanRoot && index >= 0 && (options.parseArrays && index <= options.arrayLimit)) {
+            } else if (!isNaN(index) && root !== decodedRoot && String(index) === decodedRoot && index >= 0 && (options.parseArrays && index <= options.arrayLimit)) {
               obj = [];
               obj[index] = leaf;
-            } else if (cleanRoot !== "__proto__") {
-              obj[cleanRoot] = leaf;
+            } else if (decodedRoot !== "__proto__") {
+              obj[decodedRoot] = leaf;
             }
           }
           leaf = obj;
@@ -2688,6 +2990,9 @@ var PixiDashLine = (() => {
           keys.push(segment[1]);
         }
         if (segment) {
+          if (options.strictDepth === true) {
+            throw new RangeError("Input depth exceeded depth option of " + options.depth + " and strictDepth is true");
+          }
           keys.push("[" + key.slice(segment.index) + "]");
         }
         return parseObject(keys, val, options, valuesParsed);
@@ -2696,30 +3001,45 @@ var PixiDashLine = (() => {
         if (!opts) {
           return defaults;
         }
-        if (opts.decoder !== null && opts.decoder !== void 0 && typeof opts.decoder !== "function") {
+        if (typeof opts.allowEmptyArrays !== "undefined" && typeof opts.allowEmptyArrays !== "boolean") {
+          throw new TypeError("`allowEmptyArrays` option can only be `true` or `false`, when provided");
+        }
+        if (typeof opts.decodeDotInKeys !== "undefined" && typeof opts.decodeDotInKeys !== "boolean") {
+          throw new TypeError("`decodeDotInKeys` option can only be `true` or `false`, when provided");
+        }
+        if (opts.decoder !== null && typeof opts.decoder !== "undefined" && typeof opts.decoder !== "function") {
           throw new TypeError("Decoder has to be a function.");
         }
         if (typeof opts.charset !== "undefined" && opts.charset !== "utf-8" && opts.charset !== "iso-8859-1") {
           throw new TypeError("The charset option must be either utf-8, iso-8859-1, or undefined");
         }
         var charset = typeof opts.charset === "undefined" ? defaults.charset : opts.charset;
+        var duplicates = typeof opts.duplicates === "undefined" ? defaults.duplicates : opts.duplicates;
+        if (duplicates !== "combine" && duplicates !== "first" && duplicates !== "last") {
+          throw new TypeError("The duplicates option must be either combine, first, or last");
+        }
+        var allowDots = typeof opts.allowDots === "undefined" ? opts.decodeDotInKeys === true ? true : defaults.allowDots : !!opts.allowDots;
         return {
-          allowDots: typeof opts.allowDots === "undefined" ? defaults.allowDots : !!opts.allowDots,
+          allowDots,
+          allowEmptyArrays: typeof opts.allowEmptyArrays === "boolean" ? !!opts.allowEmptyArrays : defaults.allowEmptyArrays,
           allowPrototypes: typeof opts.allowPrototypes === "boolean" ? opts.allowPrototypes : defaults.allowPrototypes,
           allowSparse: typeof opts.allowSparse === "boolean" ? opts.allowSparse : defaults.allowSparse,
           arrayLimit: typeof opts.arrayLimit === "number" ? opts.arrayLimit : defaults.arrayLimit,
           charset,
           charsetSentinel: typeof opts.charsetSentinel === "boolean" ? opts.charsetSentinel : defaults.charsetSentinel,
           comma: typeof opts.comma === "boolean" ? opts.comma : defaults.comma,
+          decodeDotInKeys: typeof opts.decodeDotInKeys === "boolean" ? opts.decodeDotInKeys : defaults.decodeDotInKeys,
           decoder: typeof opts.decoder === "function" ? opts.decoder : defaults.decoder,
           delimiter: typeof opts.delimiter === "string" || utils.isRegExp(opts.delimiter) ? opts.delimiter : defaults.delimiter,
           // eslint-disable-next-line no-implicit-coercion, no-extra-parens
           depth: typeof opts.depth === "number" || opts.depth === false ? +opts.depth : defaults.depth,
+          duplicates,
           ignoreQueryPrefix: opts.ignoreQueryPrefix === true,
           interpretNumericEntities: typeof opts.interpretNumericEntities === "boolean" ? opts.interpretNumericEntities : defaults.interpretNumericEntities,
           parameterLimit: typeof opts.parameterLimit === "number" ? opts.parameterLimit : defaults.parameterLimit,
           parseArrays: opts.parseArrays !== false,
           plainObjects: typeof opts.plainObjects === "boolean" ? opts.plainObjects : defaults.plainObjects,
+          strictDepth: typeof opts.strictDepth === "boolean" ? !!opts.strictDepth : defaults.strictDepth,
           strictNullHandling: typeof opts.strictNullHandling === "boolean" ? opts.strictNullHandling : defaults.strictNullHandling
         };
       };
@@ -3599,9 +3919,11 @@ Deprecated since v${version}`), console.warn(stack))), warnings[message] = true;
   };
   var f = function(r2) {
     return b((n2 = (t2 = r2).s, { h: t2.h, s: (n2 *= ((e2 = t2.l) < 50 ? e2 : 100 - e2) / 100) > 0 ? 2 * n2 / (e2 + n2) * 100 : 0, v: e2 + n2, a: t2.a }));
+    var t2, n2, e2;
   };
   var c = function(r2) {
     return { h: (t2 = h(r2)).h, s: (u2 = (200 - (n2 = t2.s)) * (e2 = t2.v) / 100) > 0 && u2 < 200 ? n2 * e2 / 100 / (u2 <= 100 ? u2 : 200 - u2) * 100 : 0, l: u2 / 2, a: t2.a };
+    var t2, n2, e2, u2;
   };
   var l = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i;
   var p = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i;
@@ -3673,18 +3995,23 @@ Deprecated since v${version}`), console.warn(stack))), warnings[message] = true;
       return H(this.rgba) >= 0.5;
     }, r2.prototype.toHex = function() {
       return r3 = o(this.rgba), t2 = r3.r, e2 = r3.g, u2 = r3.b, i2 = (a2 = r3.a) < 1 ? s(n(255 * a2)) : "", "#" + s(t2) + s(e2) + s(u2) + i2;
+      var r3, t2, e2, u2, a2, i2;
     }, r2.prototype.toRgb = function() {
       return o(this.rgba);
     }, r2.prototype.toRgbString = function() {
       return r3 = o(this.rgba), t2 = r3.r, n2 = r3.g, e2 = r3.b, (u2 = r3.a) < 1 ? "rgba(" + t2 + ", " + n2 + ", " + e2 + ", " + u2 + ")" : "rgb(" + t2 + ", " + n2 + ", " + e2 + ")";
+      var r3, t2, n2, e2, u2;
     }, r2.prototype.toHsl = function() {
       return d(c(this.rgba));
     }, r2.prototype.toHslString = function() {
       return r3 = d(c(this.rgba)), t2 = r3.h, n2 = r3.s, e2 = r3.l, (u2 = r3.a) < 1 ? "hsla(" + t2 + ", " + n2 + "%, " + e2 + "%, " + u2 + ")" : "hsl(" + t2 + ", " + n2 + "%, " + e2 + "%)";
+      var r3, t2, n2, e2, u2;
     }, r2.prototype.toHsv = function() {
       return r3 = h(this.rgba), { h: n(r3.h), s: n(r3.s), v: n(r3.v), a: n(r3.a, 3) };
+      var r3;
     }, r2.prototype.invert = function() {
       return w({ r: 255 - (r3 = this.rgba).r, g: 255 - r3.g, b: 255 - r3.b, a: r3.a });
+      var r3;
     }, r2.prototype.saturate = function(r3) {
       return void 0 === r3 && (r3 = 0.1), w(M(this.rgba, r3));
     }, r2.prototype.desaturate = function(r3) {
@@ -3699,6 +4026,7 @@ Deprecated since v${version}`), console.warn(stack))), warnings[message] = true;
       return void 0 === r3 && (r3 = 15), this.hue(this.hue() + r3);
     }, r2.prototype.alpha = function(r3) {
       return "number" == typeof r3 ? w({ r: (t2 = this.rgba).r, g: t2.g, b: t2.b, a: r3 }) : n(this.rgba.a, 3);
+      var t2;
     }, r2.prototype.hue = function(r3) {
       var t2 = c(this.rgba);
       return "number" == typeof r3 ? w({ h: r3, s: t2.s, l: t2.l, a: t2.a }) : n(t2.h);
@@ -10539,7 +10867,7 @@ void main(void)
      */
     run(options) {
       const { renderer } = this;
-      renderer.runners.init.emit(renderer.options), options.hello && console.log(`PixiJS 7.4.0 - ${renderer.rendererLogId} - https://pixijs.com`), renderer.resize(renderer.screen.width, renderer.screen.height);
+      renderer.runners.init.emit(renderer.options), options.hello && console.log(`PixiJS 7.4.2 - ${renderer.rendererLogId} - https://pixijs.com`), renderer.resize(renderer.screen.width, renderer.screen.height);
     }
     destroy() {
     }
@@ -13074,14 +13402,20 @@ void main(void)
       this.dashSize = this.dash.reduce((a2, b2) => a2 + b2);
       this.useTexture = options.useTexture;
       this.options = options;
-      this.setLineStyle();
+      this.setStrokeStyle();
+    }
+    stroke() {
+      this.graphics.stroke();
+    }
+    beginPath() {
+      this.graphics.beginPath();
     }
     /** resets line style to enable dashed line (useful if lineStyle was changed on graphics element) */
-    setLineStyle() {
+    setStrokeStyle() {
       const options = this.options;
       if (this.useTexture) {
         const texture = _DashLine.getTexture(options, this.dashSize);
-        this.graphics.lineTextureStyle({
+        this.graphics.setStrokeStyle({
           width: options.width * options.scale,
           color: options.color,
           alpha: options.alpha,
@@ -13090,7 +13424,7 @@ void main(void)
         });
         this.activeTexture = texture;
       } else {
-        this.graphics.lineStyle({
+        this.graphics.setStrokeStyle({
           width: options.width * options.scale,
           color: options.color,
           alpha: options.alpha,
@@ -13134,7 +13468,7 @@ void main(void)
           this.graphics.lineTo(x2, y2);
         }
       } else {
-        this.setLineStyle();
+        this.setStrokeStyle();
         const origin = this.lineLength % (this.dashSize * this.scale);
         let dashIndex = 0;
         let dashStart = 0;
@@ -13187,7 +13521,7 @@ void main(void)
     closePath() {
       this.lineTo(this.start.x, this.start.y, true);
     }
-    drawCircle(x2, y2, radius, points = 80, matrix) {
+    circle(x2, y2, radius, points = 80, matrix) {
       const interval = Math.PI * 2 / points;
       let angle = 0;
       let first = new Point(x2 + Math.cos(angle) * radius, y2 + Math.sin(angle) * radius);
@@ -13205,7 +13539,7 @@ void main(void)
       }
       return this;
     }
-    drawEllipse(x2, y2, radiusX, radiusY, points = 80, matrix) {
+    ellipse(x2, y2, radiusX, radiusY, points = 80, matrix) {
       const interval = Math.PI * 2 / points;
       let first;
       const point = new Point();
@@ -13229,7 +13563,7 @@ void main(void)
       this.lineTo(first.x, first.y, true);
       return this;
     }
-    drawPolygon(points, matrix) {
+    polygon(points, matrix) {
       const p2 = new Point();
       if (typeof points[0] === "number") {
         if (matrix) {
@@ -13270,7 +13604,7 @@ void main(void)
       }
       return this;
     }
-    drawRect(x2, y2, width, height, matrix) {
+    rect(x2, y2, width, height, matrix) {
       if (matrix) {
         const p2 = new Point();
         p2.set(x2, y2);
@@ -13295,7 +13629,7 @@ void main(void)
     }
     // adjust the matrix for the dashed texture
     adjustLineStyle(angle) {
-      const lineStyle = this.graphics.line;
+      const lineStyle = this.graphics.strokeStyle;
       lineStyle.matrix = new Matrix();
       if (angle) {
         lineStyle.matrix.rotate(angle);
@@ -13307,7 +13641,7 @@ void main(void)
         this.cursor.x + textureStart * Math.cos(angle),
         this.cursor.y + textureStart * Math.sin(angle)
       );
-      this.graphics.lineStyle(lineStyle);
+      this.graphics.strokeStyle(lineStyle);
     }
     // creates or uses cached texture
     static getTexture(options, dashSize) {
@@ -13339,7 +13673,7 @@ void main(void)
       }
       context2.stroke();
       const texture = _DashLine.dashTextureCache[key] = Texture.from(canvas);
-      texture.baseTexture.scaleMode = SCALE_MODES.NEAREST;
+      texture.source.scaleMode = "nearest";
       return texture;
     }
   };

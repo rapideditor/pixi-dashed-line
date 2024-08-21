@@ -1,6 +1,6 @@
 declare module "index" {
     import { Matrix, Point, Texture } from '@pixi/core';
-    import { Graphics, LINE_CAP, LINE_JOIN } from '@pixi/graphics';
+    import { Graphics, LineCap, LineJoin } from '@pixi/graphics';
     /** Define the dash: [dash length, gap size, dash size, gap size, ...] */
     export type Dashes = number[];
     export interface DashLineOptions {
@@ -11,8 +11,8 @@ declare module "index" {
         scale?: number;
         useTexture?: boolean;
         useDots?: boolean;
-        cap?: LINE_CAP;
-        join?: LINE_JOIN;
+        cap?: LineCap;
+        join?: LineJoin;
         alignment?: number;
     }
     export class DashLine {
@@ -44,16 +44,18 @@ declare module "index" {
          * @param [options.alignment] - The alignment of any lines drawn (0.5 = middle, 1 = outer, 0 = inner)
          */
         constructor(graphics: Graphics, options?: DashLineOptions);
+        stroke(): void;
+        beginPath(): void;
         /** resets line style to enable dashed line (useful if lineStyle was changed on graphics element) */
-        setLineStyle(): void;
+        setStrokeStyle(): void;
         private static distance;
         moveTo(x: number, y: number): this;
         lineTo(x: number, y: number, closePath?: boolean): this;
         closePath(): void;
-        drawCircle(x: number, y: number, radius: number, points?: number, matrix?: Matrix): this;
-        drawEllipse(x: number, y: number, radiusX: number, radiusY: number, points?: number, matrix?: Matrix): this;
-        drawPolygon(points: Point[] | number[], matrix?: Matrix): this;
-        drawRect(x: number, y: number, width: number, height: number, matrix?: Matrix): this;
+        circle(x: number, y: number, radius: number, points?: number, matrix?: Matrix): this;
+        ellipse(x: number, y: number, radiusX: number, radiusY: number, points?: number, matrix?: Matrix): this;
+        polygon(points: Point[] | number[], matrix?: Matrix): this;
+        rect(x: number, y: number, width: number, height: number, matrix?: Matrix): this;
         private adjustLineStyle;
         private static getTexture;
     }
