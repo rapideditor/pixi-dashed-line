@@ -1,7 +1,4 @@
-import * as PIXI from 'pixi.js'
-
-// import { Matrix, Point, Texture } from '@pixi/core';
-// import { Graphics, LineCap, LineJoin } from '@pixi/graphics';
+import * as PIXI from 'pixi.js';
 
 /** Define the dash: [dash length, gap size, dash size, gap size, ...] */
 export type Dashes = number[];
@@ -92,7 +89,7 @@ export class DashLine {
     const options = this.options;
     if (this.useTexture) {
       const texture = DashLine.getTexture(options, this.dashSize);
-      this.graphics.setStrokeStyle({
+      this.graphics.stroke({
         width: options.width * options.scale,
         color: options.color,
         alpha: options.alpha,
@@ -101,7 +98,7 @@ export class DashLine {
       });
       this.activeTexture = texture;
     } else {
-      this.graphics.setStrokeStyle({
+      this.graphics.stroke({
         width: options.width * options.scale,
         color: options.color,
         alpha: options.alpha,
@@ -152,7 +149,6 @@ export class DashLine {
       }
 
     } else {
-      this.setStrokeStyle();  // Not sure why this fixes #2?
 
       // Determine where in the dash pattern the cursor is starting from.
       const origin = this.lineLength % (this.dashSize * this.scale);
@@ -207,6 +203,7 @@ export class DashLine {
         dashIndex = dashIndex === this.dash.length ? 0 : dashIndex;
         dashStart = 0;
       }
+      this.setStrokeStyle();  // Not sure why this fixes #2?
     }
 
     return this;
@@ -359,7 +356,7 @@ export class DashLine {
       this.cursor.x + textureStart * Math.cos(angle),
       this.cursor.y + textureStart * Math.sin(angle)
     );
-    this.graphics.setStrokeStyle(lineStyle);
+    this.graphics.stroke(lineStyle);
   }
 
 
