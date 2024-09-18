@@ -1,7 +1,9 @@
 "use strict";
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
   for (var name in all)
@@ -15,6 +17,14 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.ts
@@ -23,7 +33,7 @@ __export(src_exports, {
   DashLine: () => DashLine
 });
 module.exports = __toCommonJS(src_exports);
-var import_core = require("@pixi/core");
+var PIXI = __toESM(require("pixi.js"), 1);
 var dashLineOptionsDefault = {
   dash: [10, 5],
   width: 1,
@@ -49,7 +59,7 @@ var _DashLine = class _DashLine {
    */
   constructor(graphics, options = {}) {
     /** cursor location */
-    this.cursor = new import_core.Point();
+    this.cursor = new PIXI.Point();
     /** desired scale of line */
     this.scale = 1;
     this.graphics = graphics;
@@ -71,7 +81,7 @@ var _DashLine = class _DashLine {
     const options = this.options;
     if (this.useTexture) {
       const texture = _DashLine.getTexture(options, this.dashSize);
-      this.graphics.setStrokeStyle({
+      this.graphics.stroke({
         width: options.width * options.scale,
         color: options.color,
         alpha: options.alpha,
@@ -80,7 +90,7 @@ var _DashLine = class _DashLine {
       });
       this.activeTexture = texture;
     } else {
-      this.graphics.setStrokeStyle({
+      this.graphics.stroke({
         width: options.width * options.scale,
         color: options.color,
         alpha: options.alpha,
@@ -97,7 +107,7 @@ var _DashLine = class _DashLine {
   moveTo(x, y) {
     this.lineLength = 0;
     this.cursor.set(x, y);
-    this.start = new import_core.Point(x, y);
+    this.start = new PIXI.Point(x, y);
     this.graphics.moveTo(this.cursor.x, this.cursor.y);
     return this;
   }
@@ -107,8 +117,7 @@ var _DashLine = class _DashLine {
     }
     let [x0, y0] = [this.cursor.x, this.cursor.y];
     const length = _DashLine.distance(x0, y0, x, y);
-    if (length < 1)
-      return this;
+    if (length < 1) return this;
     const angle = Math.atan2(y - y0, x - x0);
     const cos = Math.cos(angle);
     const sin = Math.sin(angle);
@@ -124,7 +133,6 @@ var _DashLine = class _DashLine {
         this.graphics.lineTo(x, y);
       }
     } else {
-      this.setStrokeStyle();
       const origin = this.lineLength % (this.dashSize * this.scale);
       let dashIndex = 0;
       let dashStart = 0;
@@ -171,6 +179,7 @@ var _DashLine = class _DashLine {
         dashIndex = dashIndex === this.dash.length ? 0 : dashIndex;
         dashStart = 0;
       }
+      this.setStrokeStyle();
     }
     return this;
   }
@@ -180,7 +189,7 @@ var _DashLine = class _DashLine {
   circle(x, y, radius, points = 80, matrix) {
     const interval = Math.PI * 2 / points;
     let angle = 0;
-    let first = new import_core.Point(x + Math.cos(angle) * radius, y + Math.sin(angle) * radius);
+    let first = new PIXI.Point(x + Math.cos(angle) * radius, y + Math.sin(angle) * radius);
     if (matrix) {
       matrix.apply(first, first);
       this.moveTo(first[0], first[1]);
@@ -198,7 +207,7 @@ var _DashLine = class _DashLine {
   ellipse(x, y, radiusX, radiusY, points = 80, matrix) {
     const interval = Math.PI * 2 / points;
     let first;
-    const point = new import_core.Point();
+    const point = new PIXI.Point();
     let f = 0;
     for (let i = 0; i < Math.PI * 2; i += interval) {
       let x0 = x - radiusX * Math.sin(i);
@@ -220,7 +229,7 @@ var _DashLine = class _DashLine {
     return this;
   }
   polygon(points, matrix) {
-    const p = new import_core.Point();
+    const p = new PIXI.Point();
     if (typeof points[0] === "number") {
       if (matrix) {
         p.set(points[0], points[1]);
@@ -262,7 +271,7 @@ var _DashLine = class _DashLine {
   }
   rect(x, y, width, height, matrix) {
     if (matrix) {
-      const p = new import_core.Point();
+      const p = new PIXI.Point();
       p.set(x, y);
       matrix.apply(p, p);
       this.moveTo(p.x, p.y);
@@ -286,18 +295,17 @@ var _DashLine = class _DashLine {
   // adjust the matrix for the dashed texture
   adjustLineStyle(angle) {
     const lineStyle = this.graphics.strokeStyle;
-    lineStyle.matrix = new import_core.Matrix();
+    lineStyle.matrix = new PIXI.Matrix();
     if (angle) {
       lineStyle.matrix.rotate(angle);
     }
-    if (this.scale !== 1)
-      lineStyle.matrix.scale(this.scale, this.scale);
+    if (this.scale !== 1) lineStyle.matrix.scale(this.scale, this.scale);
     const textureStart = -this.lineLength;
     lineStyle.matrix.translate(
       this.cursor.x + textureStart * Math.cos(angle),
       this.cursor.y + textureStart * Math.sin(angle)
     );
-    this.graphics.strokeStyle(lineStyle);
+    this.graphics.stroke(lineStyle);
   }
   // creates or uses cached texture
   static getTexture(options, dashSize) {
@@ -328,7 +336,7 @@ var _DashLine = class _DashLine {
       }
     }
     context.stroke();
-    const texture = _DashLine.dashTextureCache[key] = import_core.Texture.from(canvas);
+    const texture = _DashLine.dashTextureCache[key] = PIXI.Texture.from(canvas);
     texture.source.scaleMode = "nearest";
     return texture;
   }

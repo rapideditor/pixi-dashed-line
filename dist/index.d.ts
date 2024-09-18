@@ -1,6 +1,5 @@
 declare module "index" {
-    import { Matrix, Point, Texture } from '@pixi/core';
-    import { Graphics, LineCap, LineJoin } from '@pixi/graphics';
+    import * as PIXI from 'pixi.js';
     /** Define the dash: [dash length, gap size, dash size, gap size, ...] */
     export type Dashes = number[];
     export interface DashLineOptions {
@@ -11,16 +10,16 @@ declare module "index" {
         scale?: number;
         useTexture?: boolean;
         useDots?: boolean;
-        cap?: LineCap;
-        join?: LineJoin;
+        cap?: PIXI.LineCap;
+        join?: PIXI.LineJoin;
         alignment?: number;
     }
     export class DashLine {
-        graphics: Graphics;
+        graphics: PIXI.Graphics;
         /** current length of the line */
         lineLength: number;
         /** cursor location */
-        cursor: Point;
+        cursor: PIXI.Point;
         /** desired scale of line */
         scale: number;
         private activeTexture;
@@ -29,7 +28,7 @@ declare module "index" {
         private dash;
         private useTexture;
         private options;
-        static dashTextureCache: Record<string, Texture>;
+        static dashTextureCache: Record<string, PIXI.Texture>;
         /**
          * Create a DashLine
          * @param graphics
@@ -43,7 +42,7 @@ declare module "index" {
          * @param [options.join] - add a LINE_JOIN style to the dashed lines (only works for useTexture: false)
          * @param [options.alignment] - The alignment of any lines drawn (0.5 = middle, 1 = outer, 0 = inner)
          */
-        constructor(graphics: Graphics, options?: DashLineOptions);
+        constructor(graphics: PIXI.Graphics, options?: DashLineOptions);
         stroke(): void;
         beginPath(): void;
         /** resets line style to enable dashed line (useful if lineStyle was changed on graphics element) */
@@ -52,10 +51,10 @@ declare module "index" {
         moveTo(x: number, y: number): this;
         lineTo(x: number, y: number, closePath?: boolean): this;
         closePath(): void;
-        circle(x: number, y: number, radius: number, points?: number, matrix?: Matrix): this;
-        ellipse(x: number, y: number, radiusX: number, radiusY: number, points?: number, matrix?: Matrix): this;
-        polygon(points: Point[] | number[], matrix?: Matrix): this;
-        rect(x: number, y: number, width: number, height: number, matrix?: Matrix): this;
+        circle(x: number, y: number, radius: number, points?: number, matrix?: PIXI.Matrix): this;
+        ellipse(x: number, y: number, radiusX: number, radiusY: number, points?: number, matrix?: PIXI.Matrix): this;
+        polygon(points: PIXI.Point[] | number[], matrix?: PIXI.Matrix): this;
+        rect(x: number, y: number, width: number, height: number, matrix?: PIXI.Matrix): this;
         private adjustLineStyle;
         private static getTexture;
     }
