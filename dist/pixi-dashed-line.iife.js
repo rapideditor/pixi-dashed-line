@@ -217,9 +217,9 @@ var PixiDashLine = (() => {
     }
   });
 
-  // node_modules/pixi.js/node_modules/eventemitter3/index.js
+  // node_modules/eventemitter3/index.js
   var require_eventemitter3 = __commonJS({
-    "node_modules/pixi.js/node_modules/eventemitter3/index.js"(exports, module) {
+    "node_modules/eventemitter3/index.js"(exports, module) {
       "use strict";
       var has = Object.prototype.hasOwnProperty;
       var prefix = "~";
@@ -379,10 +379,10 @@ var PixiDashLine = (() => {
     }
   });
 
-  // node_modules/pixi.js/node_modules/eventemitter3/index.mjs
+  // node_modules/eventemitter3/index.mjs
   var import_index, eventemitter3_default;
   var init_eventemitter3 = __esm({
-    "node_modules/pixi.js/node_modules/eventemitter3/index.mjs"() {
+    "node_modules/eventemitter3/index.mjs"() {
       import_index = __toESM(require_eventemitter3(), 1);
       eventemitter3_default = import_index.default;
     }
