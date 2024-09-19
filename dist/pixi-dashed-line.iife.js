@@ -14306,6 +14306,7 @@ ${parts.join("\n")}
         }
         reset() {
           this.applyTransform = true;
+          this.renderable = null;
         }
       };
     }
